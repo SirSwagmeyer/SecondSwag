@@ -52,7 +52,7 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(roll_storyteller_dice, R_FUN, "Roll storyteller dic
 #define UI_MOB_DICE_ROLL "EAST-4:22,SOUTH+1:24"
 
 /atom/movable/screen/dice_roll
-	name = "Roll Custom Dice"
+	name = "roll custom dice"
 	icon = 'icons/hud/screen_midnight.dmi'
 	icon_state = "dice"
 	screen_loc = UI_MOB_DICE_ROLL
@@ -62,7 +62,6 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(roll_storyteller_dice, R_FUN, "Roll storyteller dic
 	. = ..()
 
 	var/mob/living/roller = astype(usr)
-	if(roller)
-		roller.roll_dice_custom()
+	roller?.roll_dice_custom()
 
 #undef UI_MOB_DICE_ROLL

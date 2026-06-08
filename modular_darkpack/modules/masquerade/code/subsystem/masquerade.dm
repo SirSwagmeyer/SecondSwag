@@ -150,7 +150,7 @@ SUBSYSTEM_DEF(masquerade)
 /datum/controller/subsystem/masquerade/proc/player_masquerade_reinforce(datum/source, mob/living/player_breacher)
 	SIGNAL_HANDLER
 
-	for(var/masquerade_breach as anything in masquerade_breachers)
+	for(var/masquerade_breach in masquerade_breachers)
 		var/list/masquerade_breach_list = masquerade_breach
 		if(islist(masquerade_breach_list[2])) //If its the skull list, then its a long term masq breach. Clear it.
 			for(var/atom/list_object as anything in masquerade_breach_list[2])
