@@ -7,7 +7,7 @@
 	anchored = TRUE
 	layer = ABOVE_MOB_LAYER
 
-/obj/structure/food_cart/Initialize(mapload)
+/obj/structure/food_cart/Initialize()
 	. = ..()
 	icon_state = "vat[rand(1, 3)]"
 

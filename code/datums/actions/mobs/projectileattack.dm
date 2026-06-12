@@ -5,7 +5,7 @@
 	desc = "Fires a set of projectiles at a selected target."
 	cooldown_time = 1.5 SECONDS
 	/// The type of the projectile to be fired
-	var/obj/projectile/projectile_type
+	var/projectile_type
 	/// The sound played when a projectile is fired
 	var/projectile_sound
 	/// If the projectile should home in on its target
@@ -58,7 +58,7 @@
 		our_projectile.set_homing_target(target)
 	if(isnum(set_angle))
 		our_projectile.fire(set_angle)
-		return our_projectile
+		return
 	our_projectile.fire()
 	return our_projectile
 
@@ -78,7 +78,7 @@
 /datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire/attack_sequence(mob/living/firer, atom/target)
 	for(var/i in 1 to shot_count)
 		shoot_projectile(firer, target, null, firer, rand(-default_projectile_spread, default_projectile_spread), null)
-		SLEEP_CHECK_DEATH(shot_delay, firer)
+		SLEEP_CHECK_DEATH(shot_delay, src)
 
 /datum/action/cooldown/mob_cooldown/projectile_attack/rapid_fire/direct
 	shot_count = 40
@@ -331,7 +331,7 @@
 	var/mob/living/simple_animal/hostile/megafauna/colossus/colossus
 	if(istype(firer, /mob/living/simple_animal/hostile/megafauna/colossus))
 		colossus = firer
-		colossus.say("Perish.", spans = list(SPAN_COLOSSUS, SPAN_YELL))
+		colossus.say("Perish.", spans = list("colossus", "yell"))
 
 	SLEEP_CHECK_DEATH(1.5 SECONDS, firer) //gives dumbasses in melee range a slim chance to retreat
 	var/finale_counter = 10

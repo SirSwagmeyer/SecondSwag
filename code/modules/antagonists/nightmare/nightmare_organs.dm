@@ -93,10 +93,6 @@
 	/// The armblade granted to the host of this heart.
 	var/obj/item/light_eater/blade
 
-/obj/item/organ/heart/nightmare/Destroy()
-	QDEL_NULL(blade)
-	return ..()
-
 /obj/item/organ/heart/nightmare/attack(mob/M, mob/living/carbon/user, obj/target)
 	if(M != user)
 		return ..()
@@ -115,11 +111,9 @@
 
 /obj/item/organ/heart/nightmare/on_mob_insert(mob/living/carbon/heart_owner, special, movement_flags)
 	. = ..()
-	if(special == HEART_SPECIAL_SHADOWIFY)
-		return
-	blade = new /obj/item/light_eater
-	heart_owner.put_in_hands(blade)
-	RegisterSignal(blade, COMSIG_QDELETING, PROC_REF(on_blade_deleted))
+	if(special != HEART_SPECIAL_SHADOWIFY)
+		blade = new/obj/item/light_eater
+		heart_owner.put_in_hands(blade)
 
 /obj/item/organ/heart/nightmare/on_mob_remove(mob/living/carbon/heart_owner, special, movement_flags)
 	. = ..()
@@ -130,11 +124,6 @@
 
 /obj/item/organ/heart/nightmare/Stop()
 	return FALSE
-
-// Happens if the blade was deleted before we were during mob destruction
-/obj/item/organ/heart/nightmare/proc/on_blade_deleted(datum/source)
-	SIGNAL_HANDLER
-	blade = null
 
 /obj/item/organ/heart/nightmare/on_death(seconds_per_tick)
 	if(!owner)

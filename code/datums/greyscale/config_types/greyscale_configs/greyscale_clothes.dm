@@ -926,15 +926,6 @@
 	name = "Gi (Worn)"
 	icon_file = 'icons/mob/clothing/under/costume.dmi'
 
-/datum/greyscale_config/jester_hat
-	name = "Jester Hat"
-	icon_file = 'icons/obj/clothing/head/costume.dmi'
-	json_config = 'code/datums/greyscale/json_configs/jester_hat.json'
-
-/datum/greyscale_config/jester_hat/worn
-	name = "Jester Hat (Worn)"
-	icon_file = 'icons/mob/clothing/head/costume.dmi'
-
 /datum/greyscale_config/jester_suit
 	name = "Jester Suit"
 	icon_file = 'icons/obj/clothing/under/civilian.dmi'
@@ -953,23 +944,14 @@
 	name = "Jester Shoes (Worn)"
 	icon_file = 'icons/mob/clothing/feet.dmi'
 
-/datum/greyscale_config/jester_hat_alt
-	name = "Jester Hat (Alt)"
+/datum/greyscale_config/jester_hat
+	name = "Jester Hat"
 	icon_file = 'icons/obj/clothing/head/costume.dmi'
-	json_config = 'code/datums/greyscale/json_configs/jester_hat_alt.json'
+	json_config = 'code/datums/greyscale/json_configs/jester_hat.json'
 
-/datum/greyscale_config/jester_hat_alt/worn
-	name = "Jester Hat (Alt, Worn)"
+/datum/greyscale_config/jester_hat/worn
+	name = "Jester Hat (Worn)"
 	icon_file = 'icons/mob/clothing/head/costume.dmi'
-
-/datum/greyscale_config/jester_suit_alt
-	name = "Jester Suit (Alt)"
-	icon_file = 'icons/obj/clothing/under/civilian.dmi'
-	json_config = 'code/datums/greyscale/json_configs/jester_suit_alt.json'
-
-/datum/greyscale_config/jester_suit_alt/worn
-	name = "Jester Suit (Alt, Worn)"
-	icon_file = 'icons/mob/clothing/under/civilian.dmi'
 
 /datum/greyscale_config/lizard_hat
 	name = "Lizardskin Cloche Hat"

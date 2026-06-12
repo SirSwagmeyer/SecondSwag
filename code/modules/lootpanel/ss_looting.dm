@@ -18,7 +18,7 @@ SUBSYSTEM_DEF(looting)
 
 
 /datum/controller/subsystem/looting/fire(resumed)
-	if(!length(backlog) && !length(processing))
+	if(!length(backlog))
 		return
 
 	if(!resumed)

@@ -23,8 +23,6 @@
 
 
 /datum/lootpanel/Destroy(force)
-	SSlooting.backlog -= src
-	SSlooting.processing -= src
 	reset_contents()
 	owner = null
 	source_turf = null

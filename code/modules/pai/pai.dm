@@ -25,7 +25,7 @@
 	move_resist = 0
 	name = "pAI"
 	pass_flags = PASSTABLE | PASSMOB
-	pull_force = MOVE_FORCE_NONE
+	pull_force = 0
 	radio = /obj/item/radio/headset/silicon/pai
 	worn_slot_flags = ITEM_SLOT_HEAD
 

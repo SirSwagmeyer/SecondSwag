@@ -35,11 +35,6 @@ SUBSYSTEM_DEF(humannpcpool)
 		var/mob/living/carbon/human/npc/NPC = currentrun[currentrun.len]
 		--currentrun.len
 
-		if (QDELETED(NPC))
-			GLOB.npc_list -= NPC
-			stack_trace("Found a null in npc_list [NPC.type]!")
-			continue
-
 		if (MC_TICK_CHECK)
 			return
 		NPC.handle_automated_movement()

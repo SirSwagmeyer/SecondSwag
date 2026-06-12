@@ -33,7 +33,7 @@
 	my_backup_weapon_type = /obj/item/melee/baton/vamp
 
 /*
-/mob/living/carbon/human/npc/police/Initialize(mapload)
+/mob/living/carbon/human/npc/police/Initialize()
 	. = ..()
 
 	if(prob(66))

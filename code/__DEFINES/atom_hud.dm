@@ -48,9 +48,11 @@
 #define MALF_APC_HUD "22"
 /// Blood volume bar, visible to blood worms
 #define BLOOD_HUD "23"
+/// Big Manipulator interaction point HUDs
+#define BIG_MANIP_HUD "24"
 // DARKPACK EDIT START
 /// Auspex aura HUD
-#define AUSPEX_AURA_HUD "24"
+#define AUSPEX_AURA_HUD "25"
 // DARKPACK EDIT END
 
 //by default everything in the hud_list of an atom is an image

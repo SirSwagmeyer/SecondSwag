@@ -76,7 +76,7 @@
 		return ITEM_INTERACT_SUCCESS
 
 
-/obj/item/spirit_chime/Initialize(mapload)
+/obj/item/spirit_chime/Initialize()
 	. = ..()
 	// Sets up a field with a range of 10
 	chime_field = new /datum/proximity_monitor/advanced/spirit_chime(src, detection_range)

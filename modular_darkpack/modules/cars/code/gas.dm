@@ -96,7 +96,7 @@
 	. = ..()
 */
 
-/obj/effect/decal/cleanable/gasoline/Initialize(mapload)
+/obj/effect/decal/cleanable/gasoline/Initialize()
 	. = ..()
 	var/turf/open/my_turf = get_turf(src)
 	if(istype(my_turf))

@@ -764,14 +764,3 @@
 	)
 	result = /obj/item/food/cookie/macaron
 	dish_category = DISH_COOKIE
-
-/datum/crafting_recipe/food/apple_fritter
-	name = "Apple fritter"
-	reqs = list(
-		/obj/item/food/pastrybase = 1,
-		/obj/item/food/appleslice = 1,
-	)
-	result = /obj/item/food/apple_fritter
-	added_foodtypes = GRAIN|FRUIT|FRIED|BREAKFAST
-	dish_category = DISH_PASTRY
-	meal_category = MEAL_BREAKFAST

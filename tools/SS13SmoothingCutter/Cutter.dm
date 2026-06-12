@@ -1,6 +1,8 @@
-#define A_BIG_NUMBER 9999999
-#define STATE_COUNT_NORMAL 4
-#define STATE_COUNT_DIAGONAL 7
+
+#define A_BIG_NUMBER			9999999
+#define STATE_COUNT_NORMAL		4
+#define STATE_COUNT_DIAGONAL	7
+
 
 /mob/verb/ChooseDMI(dmi as file)
 	var/dmifile = file(dmi)
@@ -36,7 +38,7 @@
 	fdel(filename) //force refresh
 
 	for(var/state in states)
-		var/statename = LOWER_TEXT(state)
+		var/statename = lowertext(state)
 		outputIcon = icon(filename) //open the icon again each iteration, to work around byond memory limits
 
 		switch(statename)
@@ -222,7 +224,3 @@
 
 		fcopy(outputIcon, filename)	//Update output icon each iteration
 	world << "Finished [filename]!"
-
-#undef A_BIG_NUMBER
-#undef STATE_COUNT_NORMAL
-#undef STATE_COUNT_DIAGONAL

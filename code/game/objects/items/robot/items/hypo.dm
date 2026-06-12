@@ -50,7 +50,6 @@
 		/datum/reagent/medicine/morphine,\
 		/datum/reagent/medicine/potass_iodide,\
 		/datum/reagent/medicine/syndicate_nanites,\
-		/datum/reagent/medicine/atropine,\
 	)
 #define BASE_SERVICE_REAGENTS list(/datum/reagent/consumable/applejuice, /datum/reagent/consumable/banana,\
 		/datum/reagent/consumable/berryjuice, /datum/reagent/consumable/cherryjelly, /datum/reagent/consumable/coffee,\

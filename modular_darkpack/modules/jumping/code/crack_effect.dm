@@ -8,6 +8,6 @@
 	plane = GAME_PLANE
 	layer = LOW_OBJ_LAYER
 
-/obj/effect/temp_visual/dir_setting/crack_effect/Initialize(mapload)
+/obj/effect/temp_visual/dir_setting/crack_effect/Initialize()
 	. = ..()
 	animate(src, alpha = 0, time = 50)

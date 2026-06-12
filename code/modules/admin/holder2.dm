@@ -122,7 +122,6 @@ GLOBAL_PROTECT(href_token)
 		add_verb(client, /client/proc/readmin)
 		client.disable_combo_hud()
 		client.update_special_keybinds()
-		client.set_stat_panel()
 
 /datum/admins/proc/associate(client/client)
 	if(IsAdminAdvancedProcCall())
@@ -163,7 +162,6 @@ GLOBAL_PROTECT(href_token)
 	owner.init_verbs() //re-initialize the verb list
 	owner.update_special_keybinds()
 	GLOB.admins |= client
-	client.set_stat_panel()
 
 	try_give_profiling()
 

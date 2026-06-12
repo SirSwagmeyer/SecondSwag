@@ -12,4 +12,3 @@
 	mid_length = 3 SECONDS
 	volume = 80
 	ignore_walls = FALSE
-	use_sound_tokens = TRUE
