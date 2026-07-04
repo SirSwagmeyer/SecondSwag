@@ -187,7 +187,7 @@
 		to_chat(owner, span_warning("You've banished [target]!"))
 		to_chat(target, span_userlove("You feel a searing pain. An all-consuming terror courses through your being. You have to get away from here!"))
 
-		var/datum/cb = CALLBACK(target, TYPE_PROC_REF(/mob/living/carbon/human, step_away_caster), owner)
+		GLOB.move_manager.move_away(target, owner, 10, target.cached_multiplicative_slowdown)
 		for(var/i in 1 to 30)
 			addtimer(cb, (i - 1) * target.cached_multiplicative_slowdown())
 		if(HAS_TRAIT(target, TRAIT_REPELLED_BY_HOLINESS))
@@ -291,14 +291,13 @@
 		sixth_sense_humanity_assessment(target, owner)
 	if(isghoul(target))
 		to_chat(owner, span_notice("They occasionally twitch and shiver, hungry for something."))
-	if(!iskindred(target) && !isghoul(target))
-		sixth_sense_numina_assessment(target, owner)
 
 /datum/discipline_power/truefaith/sixth_sense/proc/sixth_sense_clan_assessment(target, owner)
 	if(!owner || !target)
 		return
 	var/datum/splat/vampire/kindred = target
-	if(iskindred(vampire))
+	if(iskindred(target))
+		var/clan = kindred.clan
 		switch(clan)
 			if(VAMPIRE_CLAN_TOREADOR)
 				to_chat(owner, span_notice("[target] stares at little details."))
@@ -315,7 +314,7 @@
 			if(VAMPIRE_CLAN_TZIMISCE)
 				to_chat(owner, span_warning("[target] gives you a horrific, skin-crawling feeling."))
 				return
-			if(VAMPIRE_CLAN_OLD_TZIMISCE)
+			if(VAMPIRE_CLAN_OLD_CLAN_TZIMISCE)
 				to_chat(owner, span_warning("[target] fills you with an unearthly dread."))
 				return
 			if(VAMPIRE_CLAN_GANGREL)
@@ -341,10 +340,10 @@
 			if(VAMPIRE_CLAN_TRUE_BRUJAH)
 				to_chat(owner, span_notice("[target] never expresses themselves."))
 				return
-			if(VAMPIRE_CLAN_SALUBRI)
+			if(VAMPIRE_CLAN_HEALER_SALUBRI)
 				to_chat(owner, span_notice("[target] doesn't seem all that special."))
 				return
-			if(VAMPIRE_CLAN_SALUBRI_WARRIOR)
+			if(VAMPIRE_CLAN_WARRIOR_SALUBRI)
 				to_chat(owner, span_notice("[target] looks like they're stewing on something."))
 				return
 			if(VAMPIRE_CLAN_GIOVANNI)
@@ -359,7 +358,7 @@
 			if(VAMPIRE_CLAN_GARGOYLE)
 				to_chat(owner, span_notice("[target] moves with a strangely rigid gait."))
 				return
-			if(VAMPIRE_CLAN_SETITES)
+			if(VAMPIRE_CLAN_SETITE)
 				to_chat(owner, span_warning("[target] fills you with disgust."))
 				return
 			if(VAMPIRE_CLAN_NAGARAJA)
@@ -372,10 +371,11 @@
 /datum/discipline_power/truefaith/sixth_sense/proc/sixth_sense_humanity_assessment(target, owner)
 	if(!owner || !target)
 		return
+
 	var/datum/splat/vampire/kindred = target
-	if(iskindred(vampire))
-		if(stat_morality?.morality_path?.alignment == MORALITY_HUMANITY)
-			switch(stat_morality?.morality_path?.score)
+	if(iskindred(target))
+		if(target.morality_path?.alignment == MORALITY_HUMANITY)
+			switch(target_morality?.morality_path?.score)
 				if(0)
 					to_chat(owner, span_ghostalert("Whoever they were is no longer here."))
 					return
@@ -392,8 +392,8 @@
 					return
 				else
 					return
-		if(stat_morality?.morality_path?.alignment != MORALITY_ENLIGHTENMENT)
-			switch(stat_morality?.morality_path?.score)
+		if(target.morality_path?.alignment != MORALITY_ENLIGHTENMENT)
+			switch(target.morality_path?.score)
 				if(0)
 					to_chat(owner, span_ghostalert("Whoever they were is no longer here."))
 					return
@@ -419,7 +419,7 @@
 		return
 	var/datum/splat/werewolf/shifter = target
 	if(isgarou(target))
-		switch(clan)
+		switch(target.clan)
 			if("Ahroun")
 				to_chat(owner, span_notice("[target] is seemingly always angry."))
 				return
@@ -536,7 +536,7 @@
 	sinner.overlays_standing[MUTATIONS_LAYER] = perdition_overlay
 	sinner.apply_overlay(MUTATIONS_LAYER)
 
-	var/datum/cb = CALLBACK(sinner, TYPE_PROC_REF(/mob/living/carbon/human, step_away_caster), owner)
+	GLOB.move_manager.move_away(target, owner, 10, target.cached_multiplicative_slowdown)
 	for(var/i in 1 to 30)
 		addtimer(cb, (i - 1) * sinner.total_multiplicative_slowdown())
 	if(iskindred(sinner))
@@ -549,16 +549,14 @@
 			sinner.take_overall_damage(burn = 85)
 			sinner.adjust_fire_stacks(10)
 			sinner.IgniteMob()
-			playsound(sinner, 'sound/magic/demon_dies.ogg', 50, TRUE, 5)
+			playsound(sinner, 'sound/effects/magic/demon_dies.ogg', 50, TRUE, 5)
 		if(isgarou(sinner)) //verin said to keep it, so im keeping it.
-			fera.flash_act()
-			fera.Paralyze(4 SECONDS)
+			sinner.flash_act()
+			sinner.Paralyze(4 SECONDS)
 			//fera.transformator.transform(fera, fera.auspice?.breed_form, TRUE) Lupus is currently bugged to fuck. Uncomment when transformator is fixed.
-			fera.auspice?.rage = 0
-			fera.auspice?.gnosis = 0
 			SEND_SOUND(sinner, sound('modular_darkpack/modules/numina/sound/perdition_effect.ogg'))
 			addtimer(CALLBACK(src, PROC_REF(deactivate), sinner), 30 SECONDS)
-			to_chat(sinner, span_cultlarge("Your body starts to change on its own!"))
+			to_chat(sinner, span_cult_large("Your body starts to change on its own!"))
 			return
 		else
 			sinner.emote("scream")
@@ -568,7 +566,7 @@
 			sinner.take_overall_damage(burn = 60)
 			sinner.flash_act()
 	to_chat(owner, span_warning("[sinner] is rended asunder!"))
-	to_chat(sinner, span_cultlarge("OH GOD IT BURNS!"))
+	to_chat(sinner, span_cult_large("OH GOD IT BURNS!"))
 	to_chat(sinner, span_userlove("Every part of you shrieks to run! You have to get out of here, <b>now!</b>"))
 	SEND_SOUND(sinner, sound('modular_darkpack/modules/numina/sound/perdition_effect.ogg'))
 
@@ -585,8 +583,8 @@
 /obj/item/melee/touch_attack/truefaith_heal
 	name = "\improper faithful hand"
 	desc = "Through the LORD, all things are possible."
-	on_use_sound = 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg'
-	catchphrase = null
+	sound = 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg'
+	invocation = null
 	icon_state = "fleshtostone"
 	inhand_icon_state = "fleshtostone"
 
@@ -596,7 +594,7 @@
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 	var/mob/living/M = target //We still want the healing effects to affect animals and such.
 	var/mob/living/carbon/human/H = target
-	if(iskindred(H) && ((stat_morality?.morality_path?.alignment != MORALITY_HUMANITY) || (stat_morality?.morality_path?.score <= 8)))
+	if(iskindred(H) && ((target.morality_path?.alignment != MORALITY_HUMANITY) || (target.morality_path?.score <= 8)))
 		H.do_jitter_animation(10 SECONDS)
 		H.apply_damage(10, BURN, user.zone_selected)
 		H.apply_damage(25, CLONE, user.zone_selected)
@@ -605,13 +603,13 @@
 		H.IgniteMob()
 		playsound(M, 'modular_darkpack/modules/numina/sound/skin_sizzle.ogg', 25, TRUE, 3)
 		return
-	M.adjustBruteLoss(-10, TRUE)
-	M.adjustFireLoss(-10, TRUE)
-	M.adjustToxLoss(-25, TRUE)
-	M.adjustOxyLoss(-25, TRUE)
-	M.adjustCloneLoss(-25, TRUE)
-	if((ishuman(M)) && (!iskindred(M)))
-		M.reagents.add_reagent(/datum/reagent/determination, 10)
+	target.adjust_brute_loss(-10, TRUE)
+	target.adjust_fire_loss(-10, TRUE)
+	target.adjust_tox_loss(-25, TRUE)
+	target.adjust_oxy_loss(-25, TRUE)
+	target.adjust_agg_loss(-25, TRUE)
+	if((ishuman(target)) && (!iskindred(target)))
+		target.reagents.add_reagent(/datum/reagent/determination, 10)
 	if(isgarou(H))
 		H.auspice.rage -= 4
 	return
@@ -638,8 +636,8 @@
 /obj/item/melee/touch_attack/truefaith_heal
 	name = "\improper faithful hand"
 	desc = "Through the LORD, all things are possible."
-	on_use_sound = 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg'
-	catchphrase = null
+	sound = 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg'
+	invocation = null
 	icon_state = "fleshtostone"
 	inhand_icon_state = "fleshtostone"
 
@@ -649,7 +647,7 @@
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 	var/mob/living/M = target //We still want the healing effects to affect animals and such.
 	var/mob/living/carbon/human/H = target
-	if(iskindred(H) && ((stat_morality?.morality_path?.alignment != MORALITY_HUMANITY) || (stat_morality?.morality_path?.score <= 8)))
+	if(iskindred(H) && ((target.morality_path?.alignment != MORALITY_HUMANITY) || (target.morality_path?.score <= 8)))
 		H.do_jitter_animation(10 SECONDS)
 		H.apply_damage(10, BURN, user.zone_selected)
 		H.apply_damage(25, CLONE, user.zone_selected)
@@ -658,13 +656,13 @@
 		H.IgniteMob()
 		playsound(M, 'modular_darkpack/modules/numina/sound/skin_sizzle.ogg', 25, TRUE, 3)
 		return
-	M.adjustBruteLoss(-10, TRUE)
-	M.adjustFireLoss(-10, TRUE)
-	M.adjustToxLoss(-25, TRUE)
-	M.adjustOxyLoss(-25, TRUE)
-	M.adjustCloneLoss(-25, TRUE)
-	if((ishuman(M)))
-		M.reagents.add_reagent(/datum/reagent/determination, 10)
+	target.adjust_brute_loss(-10, TRUE)
+	target.adjust_fire_loss(-10, TRUE)
+	target.adjust_tox_loss(-25, TRUE)
+	target.adjust_oxy_loss(-25, TRUE)
+	target.adjust_agg_loss(-25, TRUE)
+	if((ishuman(target)))
+		target.reagents.add_reagent(/datum/reagent/determination, 10)
 	if(isgarou(H))
 		H.auspice.rage -= 4
 	return

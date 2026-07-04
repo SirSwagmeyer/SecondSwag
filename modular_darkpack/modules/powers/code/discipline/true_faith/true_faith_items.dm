@@ -13,8 +13,9 @@ GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
 	icon = 'modular_darkpack/modules/numina/icons/blessed_objects.dmi'
 	onflooricon = 'modular_darkpack/modules/numina/icons/blessed_objects.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
-	var/burn_damage = 25
-	var/agg_damage = 25
+	damtype = BURN
+	force = 1 TTRPG_DAMAGE
+	damtype = AGGRAVATED // Based on V20
 	var/base_object = /obj/item/vampirebook/quran
 
 	var/dupe_protection = FALSE //Fuck it.
@@ -24,20 +25,18 @@ GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
 	if(target == user && isliving(target))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 	var/mob/living/M = target
-	if(M.anti_magic_check())
-		return COMPONENT_CANCEL_ATTACK_CHAIN
 	if(!HAS_TRAIT(target, TRAIT_SILVER_WEAKNESS))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 	var/datum/splat/vampire/kindred = target
-	if(iskindred(H) && ((stat_morality?.morality_path?.alignment != MORALITY_HUMANITY) || (stat_morality?.morality_path?.score <= 8)))
+	if(iskindred(target) && ((target.morality_path?.alignment != MORALITY_HUMANITY) || (target.morality_path?.score <= 8)))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 	if(!HAS_TRAIT(target, TRAIT_REPELLED_BY_HOLINESS))
-		M.do_jitter_animation(10 SECONDS)
-		M.adjust_blurriness(1 SECONDS)
-		M.adjust_fire_stacks(2)
-		M.IgniteMob()
-	M.apply_damage(burn_damage, BURN, user.zone_selected)
-	M.apply_damage(agg_damage, CLONE, user.zone_selected)
+		target.do_jitter_animation(10 SECONDS)
+		target.adjust_blurriness(1 SECONDS)
+		target.adjust_fire_stacks(2)
+		target.IgniteMob()
+	target.apply_damage(burn_damage, BURN, user.zone_selected)
+	target.apply_damage(agg_damage, AGG, user.zone_selected)
 	playsound(target, 'modular_darkpack/modules/numina/sound/skin_sizzle.ogg', 25, TRUE, 3)
 	return
 
@@ -76,16 +75,18 @@ GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
 	name = "glowing prayer beads"
 	desc = "For the Lord is my shepherd."
 	icon_state = "beads"
-	burn_damage = 5
-	agg_damage = 3
+	damtype = BURN
+	force = 1 TTRPG_DAMAGE
+	damtype = AGGRAVATED // Based on V20
 	base_object = /obj/item/clothing/neck/vampire/prayerbeads
 
 /obj/item/blessed_object/blessed_cross_necklace
 	name = "glowing cross"
 	desc = "Though I walk through the valley of death, I shall fear no evil."
 	icon_state = "id11"
-	burn_damage = 10
-	agg_damage = 10
+	damtype = BURN
+	force = 2 TTRPG_DAMAGE
+	damtype = AGGRAVATED // Based on V20
 	base_object = /obj/item/card/hunter
 
 /obj/item/blessed_object/blessed_bible
@@ -94,14 +95,16 @@ GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
 	icon_state = "bible"
 	lefthand_file = 'icons/mob/inhands/items/books_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/books_righthand.dmi'
-	burn_damage = 20
-	agg_damage = 15
+	damtype = BURN
+	force = 2 TTRPG_DAMAGE
+	damtype = AGGRAVATED // Based on V20
 	base_object = /obj/item/vampirebook/bible
 
 /obj/item/blessed_object/blessed_quran
 	name = "glowing quran"
 	desc = "Do not despair of the mercy of Allāh."
 	icon_state = "quran"
-	burn_damage = 20
-	agg_damage = 15
+	damtype = BURN
+	force = 2 TTRPG_DAMAGE
+	damtype = AGGRAVATED // Based on V20
 	base_object = /obj/item/vampirebook/quran

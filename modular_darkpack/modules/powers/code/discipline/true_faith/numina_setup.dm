@@ -30,7 +30,7 @@
 	check_flags = NONE
 	button_icon = 'modular_darkpack/modules/numina/icons/numina.dmi'
 	background_icon_state = "default"
-	icon = 'modular_darkpack/modules/numina/icons/numina.dmi'
+	overlay_icon = 'modular_darkpack/modules/numina/icons/numina.dmi'
 	button_icon_state = "default"
 
 /datum/action/
@@ -41,11 +41,11 @@
 
 /datum/action/discipline/truefaith/ApplyIcon(atom/movable/screen/movable/action_button/current_button, force = FALSE) //This actually handles the overwrite.
 	button_icon = 'modular_darkpack/modules/numina/icons/numina.dmi' //Thanks again, Chaz. Lifesaver.
-	icon = 'modular_darkpack/modules/numina/icons/numina.dmi'
+	overlay_icon = 'modular_darkpack/modules/numina/icons/numina.dmi'
 	background_icon_state = "default"
 	button_icon_state = "default"
 
-	current_button.icon = 'modular_darkpack/modules/numina/icons/numina.dmi'
+	current_button.overlay_icon = 'modular_darkpack/modules/numina/icons/numina.dmi'
 	current_button.icon_state = "default"
 
 	if(icon_icon && button_icon_state && ((current_button.button_icon_state != button_icon_state) || force))
