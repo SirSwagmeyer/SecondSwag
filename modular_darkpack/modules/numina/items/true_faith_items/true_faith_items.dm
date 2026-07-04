@@ -2,12 +2,12 @@
 	name = "generic blessed object"
 	desc = "Perfectly generic."
 	icon_state = "quran"
-	icon = 'modular_tfn/modules/numina/icons/blessed_objects.dmi'
-	onflooricon = 'code/modules/wod13/onfloor.dmi'
-	w_class = WEIGHT_CLASS_GIGANTIC //To prevent people from trying to store them
+	icon = 'modular_darkpack/modules/numina/icons/blessed_objects.dmi'
+	onflooricon = 'modular_darkpack/modules/numina/icons/blessed_objects.dmi'
+	w_class = WEIGHT_CLASS_NORMAL
 	var/burn_damage = 25
 	var/agg_damage = 25
-	var/base_object = /obj/item/quran
+	var/base_object = /obj/item/vampirebook/quran
 
 	var/dupe_protection = FALSE //Fuck it.
 
@@ -18,23 +18,23 @@
 	var/mob/living/M = target
 	if(M.anti_magic_check())
 		return COMPONENT_CANCEL_ATTACK_CHAIN
-	if(!iskindred(target) && !isgarou(target))
+	if(!HAS_TRAIT(target, TRAIT_SILVER_WEAKNESS))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
-	var/mob/living/carbon/human/vampire = target
-	if(iskindred(vampire) && (vampire.morality_path?.alignment == MORALITY_HUMANITY) && (vampire.morality_path?.score >= 8))
+	var/datum/splat/vampire/kindred = target
+	if(!HAS_TRAIT(target, TRAIT_DRINKS_BLOOD)) && (stat_morality?.morality_path?.alignment != MORALITY_HUMANITY || stat_morality?.get_score() < 8)
 		return COMPONENT_CANCEL_ATTACK_CHAIN
-	if(iskindred(vampire) && (vampire.clan?.name == CLAN_BAALI)) //Baali Moment
+	if(!HAS_TRAIT(target, TRAIT_REPELLED_BY_HOLINESS))
 		M.do_jitter_animation(10 SECONDS)
 		M.adjust_blurriness(1 SECONDS)
 		M.adjust_fire_stacks(2)
 		M.IgniteMob()
 	M.apply_damage(burn_damage, BURN, user.zone_selected)
 	M.apply_damage(agg_damage, CLONE, user.zone_selected)
-	playsound(target, 'modular_tfn/modules/numina/sound/skin_sizzle.ogg', 25, TRUE, 3)
+	playsound(target, 'modular_darkpack/modules/numina/sound/skin_sizzle.ogg', 25, TRUE, 3)
 	return
 
 /obj/item/blessed_object/proc/dispel(mob/user)
-	playsound(src, 'modular_tfn/modules/numina/sound/truefaith_deactivate_generic.ogg', 25, FALSE)
+	playsound(src, 'modular_darkpack/modules/numina/sound/truefaith_deactivate_generic.ogg', 25, FALSE)
 	src.visible_message(span_notice("The strange aura surrounding [src] dissipates..."))
 	//Originally this proc handled a lot more, but it resulted in item dupes.
 	//It being here at least still means im not repeating a bunch of sound and message procs. Small victories, right?
@@ -66,7 +66,7 @@
 
 /obj/item/blessed_object/blessed_prayer_beads
 	name = "glowing prayer beads"
-	desc = "For the Lord is my shepard."
+	desc = "For the Lord is my shepherd."
 	icon_state = "beads"
 	burn_damage = 5
 	agg_damage = 3
@@ -76,28 +76,24 @@
 	name = "glowing cross"
 	desc = "Though I walk through the valley of death, I shall fear no evil."
 	icon_state = "id11"
-	lefthand_file = 'icons/mob/inhands/equipment/idcards_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/equipment/idcards_righthand.dmi'
 	burn_damage = 10
 	agg_damage = 10
-	base_object = /obj/item/card/id/hunter
+	base_object = /obj/item/card/hunter
 
 /obj/item/blessed_object/blessed_bible
 	name = "glowing bible"
 	desc = "You will know them by their works."
 	icon_state = "bible"
-	lefthand_file = 'icons/mob/inhands/misc/books_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/books_righthand.dmi'
+	lefthand_file = 'icons/mob/inhands/items/books_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items/books_righthand.dmi'
 	burn_damage = 20
 	agg_damage = 15
-	base_object = /obj/item/storage/book/bible
+	base_object = /obj/item/vampirebook/bible
 
 /obj/item/blessed_object/blessed_quran
 	name = "glowing quran"
 	desc = "Do not despair of the mercy of Allāh."
 	icon_state = "quran"
-	lefthand_file = 'icons/mob/inhands/misc/books_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/misc/books_righthand.dmi'
 	burn_damage = 20
 	agg_damage = 15
-	base_object = /obj/item/quran
+	base_object = /obj/item/vampirebook/quran

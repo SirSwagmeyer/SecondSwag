@@ -23,6 +23,10 @@
 	. = ..()
 	if(ishuman(spawned))
 		spawned.add_traits(list(TRAIT_RESIST_DOMINATE, TRAIT_RESIST_PRESENCE, TRAIT_TRUE_FAITH), JOB_TRAIT)
+		to_chat(H, "<b>You are no longer vulnerable to vampiric influence..</b>")
+		var/datum/discipline/discipline = new /datum/discipline/truefaith(5)
+		H.set_numina(NUMINA_FAITH)
+		H.give_discipline(discipline)
 
 /datum/outfit/job/vampire/inquisitor
 	name = "Inquisitor"

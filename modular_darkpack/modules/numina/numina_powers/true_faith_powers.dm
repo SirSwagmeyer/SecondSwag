@@ -1,3 +1,12 @@
+GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
+	/obj/item/blessed_object,
+	/obj/item/clothing/neck/vampire/prayerbeads,
+	/obj/item/storage/book/bible,
+	/obj/item/vampirebook/quran,
+	/obj/item/card/id/hunter,
+	/obj/item/quran
+)))
+
 /datum/discipline/numina/true_faith
 	name = "True Faith"
 	desc = "For the LORD is thy Shepard. True Faith provides the user with numerous blessings dependent on how potent it is. \
@@ -18,8 +27,8 @@
 	vitae_cost = 0
 	var/faith_cost = 0
 
-	activate_sound = 'modular_tfn/modules/numina/sound/truefaith_power_small.ogg'
-	deactivate_sound = 'modular_tfn/modules/numina/sound/truefaith_deactivate_generic.ogg'
+	activate_sound = 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg'
+	deactivate_sound = 'modular_darkpack/modules/numina/sound/truefaith_deactivate_generic.ogg'
 
 /datum/discipline_power/true_faith/proc/can_afford_faith() //Can't overwrite the parent proc because it throws a fit and refuses to work
 	var/mob/living/H = owner
@@ -152,7 +161,7 @@
 			to_chat(owner, span_notice("Nothing happens."))
 			return
 
-	playsound(H.loc, 'modular_tfn/modules/numina/sound/truefaith_power_small.ogg', 50, FALSE)
+	playsound(H.loc, 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg', 50, FALSE)
 	to_chat(owner, span_slime("[owner_held_item] begins to glow softly..."))
 	COOLDOWN_START(src, blessing, cool_down)
 
@@ -187,7 +196,7 @@
 /datum/discipline_power/true_faith/ward
 	name = "Exile the Night"
 	desc = "Brandish a holy symbol, empowered with prayer, to terrify your enemies."
-	activate_sound = 'modular_tfn/modules/numina/sound/truefaith_ward.ogg'
+	activate_sound = 'modular_darkpack/modules/numina/sound/truefaith_ward.ogg'
 
 	level = 1
 	faith_cost = 1
@@ -226,9 +235,9 @@
 
 /datum/discipline_power/true_faith/ward/pre_activation_checks(mob/living/target)
 	var/mob/living/carbon/human/vampire = target
-	if(iskindred(vampire) && (vampire.clan?.name == CLAN_BAALI)) //Per the Baali curse, Ward will always take effect and be much more punishing.
+	if(!HAS_TRAIT(target, TRAIT_REPELLED_BY_HOLINESS))
 		return TRUE
-	if(iskindred(target) && (vampire.morality_path?.alignment == MORALITY_HUMANITY) && (vampire.morality_path?.score >= 8))
+	if(iskindred(target) && (stat_morality?.morality_path?.alignment == MORALITY_HUMANITY) && (stat_morality?.morality_path?.score >= 8))
 		to_chat(owner, span_warning("[target] is unaffected by your gesture."))
 		do_cooldown(cooldown_length)
 		return FALSE
@@ -256,7 +265,7 @@
 		var/datum/cb = CALLBACK(target, TYPE_PROC_REF(/mob/living/carbon/human, step_away_caster), owner)
 		for(var/i in 1 to 30)
 			addtimer(cb, (i - 1) * target.total_multiplicative_slowdown())
-		if(target.clan?.name == CLAN_BAALI)
+		if(!HAS_TRAIT(target, TRAIT_REPELLED_BY_HOLINESS))
 			target.emote("scream")
 			target.set_confusion(20 SECONDS)
 			target.do_jitter_animation(60 SECONDS)
@@ -266,7 +275,7 @@
 			target.emote("scream")
 			target.do_jitter_animation(10 SECONDS)
 			target.adjust_blurriness(10 SECONDS)
-		SEND_SOUND(target, sound('modular_tfn/modules/numina/sound/truefaith_ward.ogg'))
+		SEND_SOUND(target, sound('modular_darkpack/modules/numina/sound/truefaith_ward.ogg'))
 	else
 		to_chat(owner, span_warning("[target] is unaffected by your gesture."))
 		return
@@ -308,15 +317,12 @@
 		to_chat(owner, span_notice("They don't have much mass to them."))
 	if(target.get_total_dexterity() <= 2)
 		to_chat(owner, span_notice("They lack coordination."))
-	if(isgarou(target))
-		to_chat(owner, span_notice("The predatory look in their eyes reminds you of a wild animal."))
-		sixth_sense_auspice_assessment(target, owner)
 	if(iskindred(target))
 		sixth_sense_clan_assessment(target, owner)
 		sixth_sense_humanity_assessment(target, owner)
 	if(isghoul(target))
 		to_chat(owner, span_notice("They occasionally twitch and shiver, hungry for something."))
-	if(!iskindred(target) && !isghoul(target) && !isgarou(target))
+	if(!iskindred(target) && !isghoul(target))
 		sixth_sense_numina_assessment(target, owner)
 
 /datum/discipline_power/true_faith/sixth_sense/proc/sixth_sense_clan_assessment(target, owner)
@@ -325,69 +331,69 @@
 	var/mob/living/carbon/human/vampire = target
 	if(iskindred(vampire))
 		switch(vampire.clan?.name)
-			if(CLAN_TOREADOR)
+			if(VAMPIRE_CLAN_TOREADOR)
 				to_chat(owner, span_notice("[target] stares at little details."))
 				return
-			if(CLAN_DAUGHTERS_OF_CACOPHONY)
+			if(VAMPIRE_CLAN_DAUGHTERS_OF_CACOPHONY)
 				to_chat(owner, span_notice("[target]'s is constantly humming to themselves."))
 				return
-			if(CLAN_VENTRUE)
+			if(VAMPIRE_CLAN_VENTRUE)
 				to_chat(owner, span_notice("[target] often looks like they're above it all."))
 				return
-			if(CLAN_LASOMBRA)
+			if(VAMPIRE_CLAN_LASOMBRA)
 				to_chat(owner, span_notice("[target] never seems to look at themselves."))
 				return
-			if(CLAN_TZIMISCE)
+			if(VAMPIRE_CLAN_TZIMISCE)
 				to_chat(owner, span_warning("[target] gives you a horrific, skin-crawling feeling."))
 				return
-			if(CLAN_OLD_TZIMISCE)
+			if(VAMPIRE_CLAN_OLD_TZIMISCE)
 				to_chat(owner, span_warning("[target] fills you with an unearthly dread."))
 				return
-			if(CLAN_GANGREL)
+			if(VAMPIRE_CLAN_GANGREL)
 				to_chat(owner, span_notice("[target] is particularly twitchy."))
 				return
-			if(CLAN_MALKAVIAN)
+			if(VAMPIRE_CLAN_MALKAVIAN)
 				to_chat(owner, span_notice("[target] doesn't seem to be all there."))
 				return
-			if(CLAN_BRUJAH)
+			if(VAMPIRE_CLAN_BRUJAH)
 				to_chat(owner, span_notice("[target] has this angry look on their face a lot."))
-			if(CLAN_NOSFERATU)
+			if(VAMPIRE_CLAN_NOSFERATU)
 				to_chat(owner, span_notice("[target] is very concerned about appearances."))
 				return
-			if(CLAN_TREMERE)
+			if(VAMPIRE_CLAN_TREMERE)
 				to_chat(owner, span_warning("[target] makes you very, very uneasy."))
 				return
-			if(CLAN_BAALI)
+			if(VAMPIRE_CLAN_BAALI)
 				to_chat(owner, span_boldwarning("[target] is an abomination before God!"))
 				return
-			if(CLAN_BANU_HAQIM)
+			if(VAMPIRE_CLAN_BANU_HAQIM)
 				to_chat(owner, span_notice("[target] looks like they're judging you."))
 				return
-			if(CLAN_TRUE_BRUJAH)
+			if(VAMPIRE_CLAN_TRUE_BRUJAH)
 				to_chat(owner, span_notice("[target] never expresses themselves."))
 				return
-			if(CLAN_SALUBRI)
+			if(VAMPIRE_CLAN_SALUBRI)
 				to_chat(owner, span_notice("[target] doesn't seem all that special."))
 				return
-			if(CLAN_SALUBRI_WARRIOR)
+			if(VAMPIRE_CLAN_SALUBRI_WARRIOR)
 				to_chat(owner, span_notice("[target] looks like they're stewing on something."))
 				return
-			if(CLAN_GIOVANNI)
+			if(VAMPIRE_CLAN_GIOVANNI)
 				to_chat(owner, span_notice("[target] has a very peculiar last name..."))
 				return
-			if(CLAN_CAPPADOCIAN)
+			if(VAMPIRE_CLAN_CAPPADOCIAN)
 				to_chat(owner, span_warning("[target] smells of rot."))
 				return
-			if(CLAN_KIASYD)
+			if(VAMPIRE_CLAN_KIASYD)
 				to_chat(owner, span_notice("[target] has a whimsical air about them."))
 				return
-			if(CLAN_GARGOYLE)
+			if(VAMPIRE_CLAN_GARGOYLE)
 				to_chat(owner, span_notice("[target] moves with a strangely rigid gait."))
 				return
-			if(CLAN_SETITES)
+			if(VAMPIRE_CLAN_SETITES)
 				to_chat(owner, span_warning("[target] fills you with disgust."))
 				return
-			if(CLAN_NAGARAJA)
+			if(VAMPIRE_CLAN_NAGARAJA)
 				to_chat(owner, span_warning("[target] smells of iron and rust."))
 				return
 
@@ -399,8 +405,8 @@
 		return
 	var/mob/living/carbon/human/vampire = target
 	if(iskindred(vampire))
-		if(vampire.morality_path?.alignment == MORALITY_HUMANITY)
-			switch(vampire.morality_path?.score)
+		if(stat_morality?.morality_path?.alignment == MORALITY_HUMANITY)
+			switch(stat_morality?.morality_path?.score)
 				if(0)
 					to_chat(owner, span_ghostalert("Whoever they were is no longer here."))
 					return
@@ -417,8 +423,8 @@
 					return
 				else
 					return
-		if(vampire.morality_path?.alignment != MORALITY_HUMANITY)
-			switch(vampire.morality_path?.score)
+		if(stat_morality?.morality_path?.alignment != MORALITY_HUMANITY)
+			switch(stat_morality?.morality_path?.score)
 				if(0)
 					to_chat(owner, span_ghostalert("Whoever they were is no longer here."))
 					return
@@ -484,7 +490,7 @@
 /datum/discipline_power/true_faith/meditate
 	name = "Fortress of the Mind"
 	desc = "With absolute faith comes absolute certainty. Channel your belief to resist mental influences."
-	activate_sound = 'modular_tfn/modules/numina/sound/truefaith_meditate.ogg'
+	activate_sound = 'modular_darkpack/modules/numina/sound/truefaith_meditate.ogg'
 
 	level = 3
 
@@ -519,7 +525,7 @@
 	name = "Dogmatic Assurance"
 	desc = "Your faith gives you the strength to go on, even in the face of great adversity."
 
-	activate_sound = 'modular_tfn/modules/numina/sound/truefaith_power_greater.ogg'
+	activate_sound = 'modular_darkpack/modules/numina/sound/truefaith_power_greater.ogg'
 
 	level = 4
 
@@ -553,7 +559,7 @@
 /datum/discipline_power/true_faith/perdition
 	name = "Perdition"
 	desc = "In flaming fire taking vengeance on them that know not God, and that obey not the gospel: Who shall be punished with everlasting destruction from the presence of the Lord, and from the glory of his power."
-	activate_sound = 'modular_tfn/modules/numina/sound/truefaith_power_overwhelming.ogg'
+	activate_sound = 'modular_darkpack/modules/numina/sound/truefaith_power_overwhelming.ogg'
 
 	level = 5
 	check_flags = DISC_CHECK_CAPABLE|DISC_CHECK_SPEAK
@@ -598,7 +604,7 @@
 		if((sinner.morality_path?.alignment != MORALITY_HUMANITY) && (sinner.morality_path?.score >= 4))
 			theirpower -= round(sinner.morality_path?.score / 2)
 
-	if((mypower <= theirpower) && (sinner.clan?.name != CLAN_BAALI))
+	if((mypower <= theirpower) && (sinner.clan?.name != VAMPIRE_CLAN_BAALI))
 		to_chat(owner, span_warning("[sinner] resists your influence!"))
 		return
 
@@ -629,7 +635,7 @@
 			//fera.transformator.transform(fera, fera.auspice?.breed_form, TRUE) Lupus is currently bugged to fuck. Uncomment when transformator is fixed.
 			fera.auspice?.rage = 0
 			fera.auspice?.gnosis = 0
-			SEND_SOUND(sinner, sound('modular_tfn/modules/numina/sound/perdition_effect.ogg'))
+			SEND_SOUND(sinner, sound('modular_darkpack/modules/numina/sound/perdition_effect.ogg'))
 			addtimer(CALLBACK(src, PROC_REF(deactivate), sinner), 30 SECONDS)
 			to_chat(sinner, span_cultlarge("Your body starts to change on its own!"))
 			return
@@ -643,7 +649,7 @@
 	to_chat(owner, span_warning("[sinner] is rended asunder!"))
 	to_chat(sinner, span_cultlarge("OH GOD IT BURNS!"))
 	to_chat(sinner, span_userlove("Every part of you shrieks to run! You have to get out of here, <b>now!</b>"))
-	SEND_SOUND(sinner, sound('modular_tfn/modules/numina/sound/perdition_effect.ogg'))
+	SEND_SOUND(sinner, sound('modular_darkpack/modules/numina/sound/perdition_effect.ogg'))
 
 	addtimer(CALLBACK(src, PROC_REF(deactivate), sinner), 30 SECONDS)
 
@@ -658,7 +664,7 @@
 /obj/item/melee/touch_attack/truefaith_heal
 	name = "\improper faithful hand"
 	desc = "Through the LORD, all things are possible."
-	on_use_sound = 'modular_tfn/modules/numina/sound/truefaith_power_small.ogg'
+	on_use_sound = 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg'
 	catchphrase = null
 	icon_state = "fleshtostone"
 	inhand_icon_state = "fleshtostone"
@@ -669,14 +675,14 @@
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 	var/mob/living/M = target //We still want the healing effects to affect animals and such.
 	var/mob/living/carbon/human/H = target
-	if(iskindred(H) && ((H.morality_path?.alignment != MORALITY_HUMANITY) || (H.morality_path?.score <= 8)))
+	if(iskindred(H) && ((stat_morality?.morality_path?.alignment != MORALITY_HUMANITY) || (stat_morality?.morality_path?.score <= 8)))
 		H.do_jitter_animation(10 SECONDS)
 		H.apply_damage(10, BURN, user.zone_selected)
 		H.apply_damage(25, CLONE, user.zone_selected)
 		H.flash_act()
 		H.adjust_fire_stacks(1)
 		H.IgniteMob()
-		playsound(M, 'modular_tfn/modules/numina/sound/skin_sizzle.ogg', 25, TRUE, 3)
+		playsound(M, 'modular_darkpack/modules/numina/sound/skin_sizzle.ogg', 25, TRUE, 3)
 		return
 	M.adjustBruteLoss(-10, TRUE)
 	M.adjustFireLoss(-10, TRUE)

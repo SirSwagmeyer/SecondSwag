@@ -3,3 +3,6 @@
 #define is_sabbatist(job_type) (istype(job_type, /datum/job/vampire/sabbatpack || /datum/job/vampire/sabbatpriest || /datum/job/vampire/sabbatductus))
 #define is_sabbat_priest(job_type) (istype(job_type, /datum/job/vampire/sabbatpriest))
 #define is_sabbat_ductus(job_type) (istype(job_type, /datum/job/vampire/sabbatductus))
+#define iskindred(mob) (get_kindred_splat(mob))
+#define isghoul(mob) (get_ghoul_splat(mob))
+#define isgarou(mob) (get_garou_splat(mob))
