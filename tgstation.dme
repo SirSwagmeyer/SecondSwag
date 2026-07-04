@@ -7734,6 +7734,8 @@
 #include "modular_darkpack\modules\powers\code\discipline\thaumaturgy\paths\lure_of_flames.dm"
 #include "modular_darkpack\modules\powers\code\discipline\thaumaturgy\status_effects\blood_of_potency_effect.dm"
 #include "modular_darkpack\modules\powers\code\discipline\thaumaturgy\status_effects\blood_rage_status.dm"
+#include "modular_darkpack\modules\powers\code\discipline\true_faith\numina_setup.dm"
+#include "modular_darkpack\modules\powers\code\discipline\true_faith\true_faith_items.dm"
 #include "modular_darkpack\modules\powers\code\discipline\true_faith\truefaith.dm"
 #include "modular_darkpack\modules\powers\code\discipline\true_faith\vade_retro.dm"
 #include "modular_darkpack\modules\powers\code\discipline\vicissitude\blood_form.dm"

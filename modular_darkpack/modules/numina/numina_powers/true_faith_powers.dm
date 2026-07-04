@@ -1,11 +1,4 @@
-GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
-	/obj/item/blessed_object,
-	/obj/item/clothing/neck/vampire/prayerbeads,
-	/obj/item/storage/book/bible,
-	/obj/item/vampirebook/quran,
-	/obj/item/card/id/hunter,
-	/obj/item/quran
-)))
+
 
 /datum/discipline/numina/true_faith
 	name = "True Faith"

@@ -1,12 +1,3 @@
-GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
-	/obj/item/blessed_object,
-	/obj/item/clothing/neck/vampire/prayerbeads,
-	/obj/item/storage/book/bible,
-	/obj/item/vampirebook/quran,
-	/obj/item/card/id/hunter,
-	/obj/item/quran
-)))
-
 /datum/discipline/truefaith
 	name = "True Faith"
 	desc = "A discipline focused on unwavering belief and the power of faith."
@@ -14,7 +5,7 @@ GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
 	power_type = /datum/discipline_power/truefaith
 	var/action_type = /datum/action/discipline/truefaith
 	var/action_replaced = FALSE // Track if we've already done the replacement
-	selectable = FALSE
+	selectable = TRUE
 	power_type = /datum/discipline_power
 
 /datum/discipline/truefaith/post_gain()
@@ -223,7 +214,7 @@ GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
 /datum/action/numina/truefaith_action/blessing
 	name = "Sanctify"
 	desc = "Call upon the powers that be to temporarily empower an object of holy significance."
-	cool_down = 1 MINUTES
+	cooldown_length = 1 MINUTES
 	button_icon_state = "blessing"
 	check_flags = AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
 
@@ -231,7 +222,7 @@ GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
 
 /datum/action/numina/truefaith_action/blessing/Trigger(trigger_flags)
 	. = ..()
-	if(!use_resources())
+	if(!src.use_resources())
 		return
 	if (!COOLDOWN_FINISHED(src, blessing))
 		to_chat(owner, span_warning("You can't empower anything for another [DisplayTimeText(COOLDOWN_TIMELEFT(src, blessing))]!"))
@@ -251,7 +242,7 @@ GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
 			hand_object = new /obj/item/blessed_object/blessed_bible(H.drop_location())
 			qdel(owner_held_item)
 			H.put_in_active_hand(hand_object)
-		if(/obj/item/vampirebook/quran, /obj/item/quran)
+		if(/obj/item/vampirebook/quran)
 			hand_object = new /obj/item/blessed_object/blessed_quran(H.drop_location())
 			qdel(owner_held_item)
 			H.put_in_active_hand(hand_object)
@@ -265,7 +256,7 @@ GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
 
 	playsound(H.loc, 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg', 50, FALSE)
 	to_chat(owner, span_slime("[owner_held_item] begins to glow softly..."))
-	COOLDOWN_START(src, blessing, cool_down)
+	COOLDOWN_START(src, blessing, cooldown_length)
 
 ///////////////////
 /// SIXTH SENSE ///
@@ -634,12 +625,12 @@ GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
 	button_icon_state = "faithheal"
 	check_flags = AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
 
-	cool_down = 6 MINUTES
+	cooldown_length = 6 MINUTES
 	COOLDOWN_DECLARE(miracle)
 
 /datum/action/numina/truefaith_action/miracle/Trigger(trigger_flags)
 	. = ..()
-	if(!use_resources())
+	if(!src.use_resources())
 		return
 	if (!COOLDOWN_FINISHED(src, miracle))
 		to_chat(owner, span_warning("You can't perform a miracle for another [DisplayTimeText(COOLDOWN_TIMELEFT(src, miracle))]!"))
@@ -647,7 +638,7 @@ GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
 	if(iscarbon(owner))
 		var/mob/living/carbon/H = owner
 		H.put_in_active_hand(new /obj/item/melee/touch_attack/truefaith_heal(H))
-	COOLDOWN_START(src, miracle, cool_down)
+	COOLDOWN_START(src, miracle, cooldown_length)
 
 /obj/item/melee/touch_attack/truefaith_heal
 	name = "\improper faithful hand"
