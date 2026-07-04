@@ -118,6 +118,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 #define TRAIT_RESIST_DOMINATE "resist_dominate"
 // Is the mob harder to affect with Presence due to resistance?
 #define TRAIT_RESIST_PRESENCE "resist_presence"
+// Does the mob has a supernatural faith in God? (For example, a Hunter with the True Faith merit)
+#define TRAIT_TRUE_FAITH "true_faith"
 /// They have warped time at some point in this round
 #define TRAIT_TIMEWARPER "timewarper"
 

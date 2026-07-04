@@ -202,6 +202,24 @@
 		lightningbolt(target)
 		to_chat(target, span_userdanger("The gods have punished you for your sins!"))
 
+/obj/item/card/hunter/holy
+	name = "holy cross"
+	desc = "A holy cross, blessed with an aura of True Faith, or perhaps, a significant amount of personal conviction. It is said to be able to repel evil and protect the wearer from harm."
+	icon = 'modular_darkpack/modules/jobs/icons/id_items.dmi'
+	icon_state = "hunter_badge"
+	ONFLOOR_ICON_HELPER('modular_darkpack/modules/jobs/icons/id_onfloors.dmi')
+	worn_icon = 'modular_darkpack/modules/jobs/icons/id_worn.dmi'
+	worn_icon_state = "hunter_badge"
+
+/obj/item/card/hunter/holy/attack(mob/living/target, mob/living/user)
+	. = ..()
+	if(!HAS_TRAIT(user, TRAIT_TRUE_FAITH))
+		return
+	if(!get_kindred_splat(target))
+		return
+	if(target == user)
+		return
+	target.apply_damage(10, AGGRAVATED)
 
 // POLICE
 /obj/item/card/police

@@ -22,7 +22,7 @@
 /datum/job/vampire/inquisitor/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
 	if(ishuman(spawned))
-		spawned.add_traits(list(TRAIT_RESIST_DOMINATE, TRAIT_RESIST_PRESENCE), JOB_TRAIT)
+		spawned.add_traits(list(TRAIT_RESIST_DOMINATE, TRAIT_RESIST_PRESENCE, TRAIT_TRUE_FAITH), JOB_TRAIT)
 
 /datum/outfit/job/vampire/inquisitor
 	name = "Inquisitor"

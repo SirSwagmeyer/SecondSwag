@@ -21,7 +21,7 @@
 /datum/job/vampire/abbe/after_spawn(mob/living/spawned, client/player_client)
 	. = ..()
 	if(ishuman(spawned))
-		spawned.add_traits(list(TRAIT_IMMUNE_TO_DOMINATE, TRAIT_IMMUNE_TO_PRESENCE), JOB_TRAIT)
+		spawned.add_traits(list(TRAIT_IMMUNE_TO_DOMINATE, TRAIT_IMMUNE_TO_PRESENCE, TRAIT_TRUE_FAITH), JOB_TRAIT)
 
 /datum/outfit/job/vampire/abbe
 	name = "Abbe"
