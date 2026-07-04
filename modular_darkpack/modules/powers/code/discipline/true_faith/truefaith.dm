@@ -3,7 +3,6 @@
 	desc = "A discipline focused on unwavering belief and the power of faith."
 	icon_state = "truefaith"
 	power_type = /datum/discipline_power/truefaith
-	var/action_type = /datum/action/discipline/truefaith
 	var/action_replaced = FALSE // Track if we've already done the replacement
 	selectable = TRUE
 	power_type = /datum/discipline_power
@@ -163,7 +162,7 @@
 	var/datum/splat/vampire/kindred = target
 	if(HAS_TRAIT(target, TRAIT_REPELLED_BY_HOLINESS)) //Per the Baali curse, Ward will always take effect and be much more punishing.
 		return TRUE
-	if(iskindred(target) && (stat_morality?.morality_path?.alignment == MORALITY_HUMANITY) && (stat_morality?.morality_path?.score >= 8))
+	if(iskindred(target) && (target.morality_path?.alignment == MORALITY_HUMANITY) && (target.morality_path?.score >= 8))
 		to_chat(owner, span_warning("[target] is unaffected by your gesture."))
 		do_cooldown(cooldown_length)
 		return FALSE
@@ -214,7 +213,6 @@
 /datum/action/numina/truefaith_action/blessing
 	name = "Sanctify"
 	desc = "Call upon the powers that be to temporarily empower an object of holy significance."
-	cooldown_length = 1 MINUTES
 	button_icon_state = "blessing"
 	check_flags = AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
 
@@ -256,7 +254,6 @@
 
 	playsound(H.loc, 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg', 50, FALSE)
 	to_chat(owner, span_slime("[owner_held_item] begins to glow softly..."))
-	COOLDOWN_START(src, blessing, cooldown_length)
 
 ///////////////////
 /// SIXTH SENSE ///
@@ -625,7 +622,6 @@
 	button_icon_state = "faithheal"
 	check_flags = AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
 
-	cooldown_length = 6 MINUTES
 	COOLDOWN_DECLARE(miracle)
 
 /datum/action/numina/truefaith_action/miracle/Trigger(trigger_flags)
@@ -638,7 +634,6 @@
 	if(iscarbon(owner))
 		var/mob/living/carbon/H = owner
 		H.put_in_active_hand(new /obj/item/melee/touch_attack/truefaith_heal(H))
-	COOLDOWN_START(src, miracle, cooldown_length)
 
 /obj/item/melee/touch_attack/truefaith_heal
 	name = "\improper faithful hand"
