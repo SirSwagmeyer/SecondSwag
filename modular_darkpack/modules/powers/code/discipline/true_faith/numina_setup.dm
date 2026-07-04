@@ -38,29 +38,3 @@
 
 /datum/action/discipline/truefaith/New(datum/discipline/discipline)
 	. = ..()
-
-/datum/action/discipline/truefaith/ApplyIcon(atom/movable/screen/movable/action_button/current_button, force = FALSE) //This actually handles the overwrite.
-	button_icon = 'modular_darkpack/modules/numina/icons/numina.dmi' //Thanks again, Chaz. Lifesaver.
-	overlay_icon = 'modular_darkpack/modules/numina/icons/numina.dmi'
-	background_icon_state = "default"
-	button_icon_state = "default"
-
-	current_button.overlay_icon = 'modular_darkpack/modules/numina/icons/numina.dmi'
-	current_button.icon_state = "default"
-
-	if(icon_icon && button_icon_state && ((current_button.button_icon_state != button_icon_state) || force))
-		current_button.cut_overlays(TRUE)
-
-		if(discipline)
-			current_button.name = discipline.current_power.name
-			current_button.desc = discipline.current_power.desc
-
-			var/discipline_icon_state = discipline.icon_state || "default"
-			current_button.add_overlay(mutable_appearance('modular_darkpack/modules/numina/icons/numina.dmi', discipline_icon_state))
-			current_button.button_icon_state = discipline_icon_state
-
-			if(discipline.level_casting)
-				current_button.add_overlay(mutable_appearance('modular_darkpack/modules/numina/icons/numina.dmi', "[discipline.level_casting]"))
-		else
-			current_button.add_overlay(mutable_appearance('modular_darkpack/modules/numina/icons/numina.dmi', "default"))
-			current_button.button_icon_state = "default"

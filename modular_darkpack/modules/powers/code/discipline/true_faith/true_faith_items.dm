@@ -13,6 +13,8 @@ GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
 	icon = 'modular_darkpack/modules/numina/icons/blessed_objects.dmi'
 	onflooricon = 'modular_darkpack/modules/numina/icons/blessed_objects.dmi'
 	w_class = WEIGHT_CLASS_NORMAL
+	var/burn_damage = 25
+	var/agg_damage = 25
 	damtype = BURN
 	force = 1 TTRPG_DAMAGE
 	damtype = AGGRAVATED // Based on V20
@@ -24,20 +26,28 @@ GLOBAL_LIST_INIT(TFNITEMS_HOLY, typecacheof(list(
 	. = ..()
 	if(target == user && isliving(target))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
-	var/mob/living/M = target
-	if(!HAS_TRAIT(target, TRAIT_SILVER_WEAKNESS))
+	if(!isliving(target))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
-	var/datum/splat/vampire/kindred = target
-	if(iskindred(target) && ((target.morality_path?.alignment != MORALITY_HUMANITY) || (target.morality_path?.score <= 8)))
+	var/mob/living/living_target = target
+	if(!HAS_TRAIT(living_target, TRAIT_SILVER_WEAKNESS))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
-	if(!HAS_TRAIT(target, TRAIT_REPELLED_BY_HOLINESS))
-		target.do_jitter_animation(10 SECONDS)
-		target.adjust_blurriness(1 SECONDS)
-		target.adjust_fire_stacks(2)
-		target.IgniteMob()
-	target.apply_damage(burn_damage, BURN, user.zone_selected)
-	target.apply_damage(agg_damage, AGG, user.zone_selected)
-	playsound(target, 'modular_darkpack/modules/numina/sound/skin_sizzle.ogg', 25, TRUE, 3)
+	var/mob/living/carbon/human/human_target = living_target
+	var/datum/st_stat/morality_path/morality/stat_morality = null
+	if(human_target)
+		stat_morality = human_target.storyteller_stats[STAT_MORALITY]
+	var/datum/morality/morality_path = stat_morality?.morality_path
+	var/morality_alignment = morality_path?.alignment
+	var/morality_score = stat_morality?.get_score()
+	if(iskindred(living_target) && ((morality_alignment != MORALITY_HUMANITY) || (morality_score <= 8)))
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+	if(!HAS_TRAIT(living_target, TRAIT_REPELLED_BY_HOLINESS))
+		living_target.do_jitter_animation(10 SECONDS)
+		living_target.adjust_eye_blur(1 SECONDS)
+		living_target.adjust_fire_stacks(2)
+		living_target.ignite_mob()
+	living_target.apply_damage(burn_damage, BURN, user.zone_selected)
+	living_target.apply_damage(agg_damage, AGGRAVATED, user.zone_selected)
+	playsound(living_target, 'modular_darkpack/modules/numina/sound/skin_sizzle.ogg', 25, TRUE, 3)
 	return
 
 /obj/item/blessed_object/proc/dispel(mob/user)

@@ -23,8 +23,8 @@
 	. = ..()
 	if(ishuman(spawned))
 		spawned.add_traits(list(TRAIT_RESIST_DOMINATE, TRAIT_RESIST_PRESENCE, TRAIT_TRUE_FAITH), JOB_TRAIT)
-		var/datum/discipline/discipline = new /datum/discipline/truefaith(5)
-		spawned.give_discipline(discipline)
+		var/mob/living/carbon/human/human_spawned = spawned
+		human_spawned.give_st_power(/datum/discipline/truefaith, 5)
 
 /datum/outfit/job/vampire/inquisitor
 	name = "Inquisitor"

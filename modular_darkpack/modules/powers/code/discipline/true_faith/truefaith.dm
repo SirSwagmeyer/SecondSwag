@@ -5,7 +5,6 @@
 	power_type = /datum/discipline_power/truefaith
 	var/action_replaced = FALSE // Track if we've already done the replacement
 	selectable = TRUE
-	power_type = /datum/discipline_power
 
 /datum/discipline/truefaith/post_gain()
 	. = ..()
@@ -139,7 +138,6 @@
 	var/banish_succeed = FALSE
 
 /datum/discipline_power/truefaith/ward/proc/ward_check(mob/living/carbon/human/owner, mob/living/target, base_difficulty = 4, banish_succeed = FALSE)
-	var/owner_held_item = owner.get_active_held_item()
 	owner.face_atom(target)
 	if(!ishuman(target))
 		return FALSE
@@ -153,16 +151,26 @@
 
 	if(ishuman(target))
 		var/mob/living/carbon/human/human_target = target
-		if((human_target.morality_path?.alignment != MORALITY_HUMANITY) && (human_target.morality_path?.score >= 4))
-			theirpower -= round(human_target.morality_path?.score / 2)
+		var/datum/st_stat/morality_path/morality/stat_morality = human_target.storyteller_stats[STAT_MORALITY]
+		var/datum/morality/morality_path = stat_morality?.morality_path
+		var/morality_alignment = morality_path?.alignment
+		var/morality_score = stat_morality?.get_score()
+		if((morality_alignment != MORALITY_HUMANITY) && (morality_score >= 4))
+			theirpower -= round(morality_score / 2)
 
 	return (mypower > theirpower)
 
 /datum/discipline_power/truefaith/ward/pre_activation_checks(mob/living/target)
-	var/datum/splat/vampire/kindred = target
+	var/mob/living/carbon/human/human_target = target
+	var/datum/st_stat/morality_path/morality/stat_morality = null
+	if(human_target)
+		stat_morality = human_target.storyteller_stats[STAT_MORALITY]
+	var/datum/morality/morality_path = stat_morality?.morality_path
+	var/morality_alignment = morality_path?.alignment
+	var/morality_score = stat_morality?.get_score()
 	if(HAS_TRAIT(target, TRAIT_REPELLED_BY_HOLINESS)) //Per the Baali curse, Ward will always take effect and be much more punishing.
 		return TRUE
-	if(iskindred(target) && (target.morality_path?.alignment == MORALITY_HUMANITY) && (target.morality_path?.score >= 8))
+	if(iskindred(target) && (morality_alignment == MORALITY_HUMANITY) && (morality_score >= 8))
 		to_chat(owner, span_warning("[target] is unaffected by your gesture."))
 		do_cooldown(cooldown_length)
 		return FALSE
@@ -192,12 +200,12 @@
 			target.emote("scream")
 			target.set_confusion(20 SECONDS)
 			target.do_jitter_animation(60 SECONDS)
-			target.adjust_blurriness(60 SECONDS)
+			target.adjust_eye_blur(60 SECONDS)
 			target.take_overall_damage(burn = 30)
 		else
 			target.emote("scream")
 			target.do_jitter_animation(10 SECONDS)
-			target.adjust_blurriness(10 SECONDS)
+			target.adjust_eye_blur(10 SECONDS)
 		SEND_SOUND(target, sound('modular_darkpack/modules/numina/sound/truefaith_ward.ogg'))
 	else
 		to_chat(owner, span_warning("[target] is unaffected by your gesture."))
@@ -215,6 +223,9 @@
 	check_flags = AB_CHECK_IMMOBILE|AB_CHECK_LYING|AB_CHECK_CONSCIOUS
 
 	COOLDOWN_DECLARE(blessing)
+
+/datum/action/numina/truefaith_action/proc/use_resources()
+	return TRUE
 
 /datum/action/numina/truefaith_action/blessing/Trigger(trigger_flags)
 	. = ..()
@@ -293,9 +304,9 @@
 /datum/discipline_power/truefaith/sixth_sense/proc/sixth_sense_clan_assessment(target, owner)
 	if(!owner || !target)
 		return
-	var/datum/splat/vampire/kindred = target
+	var/datum/splat/vampire/kindred/kindred = get_kindred_splat(target)
 	if(iskindred(target))
-		var/clan = kindred.clan
+		var/clan = kindred?.clan
 		switch(clan)
 			if(VAMPIRE_CLAN_TOREADOR)
 				to_chat(owner, span_notice("[target] stares at little details."))
@@ -370,10 +381,14 @@
 	if(!owner || !target)
 		return
 
-	var/datum/splat/vampire/kindred = target
-	var/datum/st_stat/morality_path/morality/stat_morality = kindred?.storyteller_stats[STAT_MORALITY]
+	var/mob/living/carbon/human/human_target = target
+	var/datum/st_stat/morality_path/morality/stat_morality = null
+	if(human_target)
+		stat_morality = human_target.storyteller_stats[STAT_MORALITY]
+	var/datum/morality/morality_path = stat_morality?.morality_path
+	var/morality_alignment = morality_path?.alignment
 	if(iskindred(target))
-		if(stat_morality?.morality_path?.alignment == MORALITY_HUMANITY)
+		if(morality_alignment == MORALITY_HUMANITY)
 			switch(stat_morality?.get_score())
 				if(0)
 					to_chat(owner, span_ghostalert("Whoever they were is no longer here."))
@@ -391,7 +406,7 @@
 					return
 				else
 					return
-		if(kindred?.morality_path?.alignment != MORALITY_ENLIGHTENMENT)
+		if(morality_alignment != MORALITY_ENLIGHTENMENT)
 			switch(stat_morality?.get_score())
 				if(0)
 					to_chat(owner, span_ghostalert("Whoever they were is no longer here."))
@@ -499,12 +514,17 @@
 	owner.overlays_standing[MUTATIONS_LAYER] = perdition_overlay
 	owner.apply_overlay(MUTATIONS_LAYER)
 	for(var/mob/living/carbon/human/target in oviewers(7, owner))
-		punish_sinner(target, owner)
+		punish_sinner(target)
 	addtimer(CALLBACK(src, PROC_REF(clear_halo), owner), 5 SECONDS)
 
 /datum/discipline_power/truefaith/perdition/proc/punish_sinner(mob/living/target)
 	var/mob/living/carbon/human/sinner = target
-	var/datum/splat/werewolf/shifter = sinner
+	var/datum/st_stat/morality_path/morality/stat_morality = null
+	if(sinner)
+		stat_morality = sinner.storyteller_stats[STAT_MORALITY]
+	var/datum/morality/morality_path = stat_morality?.morality_path
+	var/morality_alignment = morality_path?.alignment
+	var/morality_score = stat_morality?.get_score()
 	var/fera_affected = FALSE
 
 	if(isgarou(sinner))
@@ -515,7 +535,7 @@
 	if(!iskindred(sinner) && !isgarou(sinner))
 		to_chat(owner, span_warning("[sinner] is unaffected by your power."))
 		return
-	if(iskindred(sinner) && (sinner.morality_path?.alignment == MORALITY_HUMANITY) && (sinner.morality_path?.score >= 8))
+	if(iskindred(sinner) && (morality_alignment == MORALITY_HUMANITY) && (morality_score >= 8))
 		to_chat(owner, span_warning("[sinner] is unaffected by your power."))
 		return
 
@@ -523,8 +543,8 @@
 	var/theirpower = SSroll.storyteller_roll_datum(sinner, difficulty = (fera_affected ? 7 : 9), mobs_to_show_output = sinner, numerical = TRUE)
 
 	if(ishuman(sinner))
-		if((sinner.morality_path?.alignment != MORALITY_HUMANITY) && (sinner.morality_path?.score >= 4))
-			theirpower -= round(sinner.morality_path?.score / 2)
+		if((morality_alignment != MORALITY_HUMANITY) && (morality_score >= 4))
+			theirpower -= round(morality_score / 2)
 
 	if((mypower <= theirpower))
 		to_chat(owner, span_warning("[sinner] resists your influence!"))
@@ -543,10 +563,10 @@
 			sinner.flash_act()
 			sinner.set_confusion(60 SECONDS)
 			sinner.do_jitter_animation(120 SECONDS)
-			sinner.adjust_blurriness(120 SECONDS)
+			sinner.adjust_eye_blur(120 SECONDS)
 			sinner.take_overall_damage(burn = 85)
 			sinner.adjust_fire_stacks(10)
-			sinner.IgniteMob()
+			sinner.ignite_mob()
 			playsound(sinner, 'sound/effects/magic/demon_dies.ogg', 50, TRUE, 5)
 		if(isgarou(sinner)) //verin said to keep it, so im keeping it.
 			sinner.flash_act()
@@ -560,7 +580,7 @@
 			sinner.emote("scream")
 			sinner.set_confusion(30 SECONDS)
 			sinner.do_jitter_animation(60 SECONDS)
-			sinner.adjust_blurriness(30 SECONDS)
+			sinner.adjust_eye_blur(30 SECONDS)
 			sinner.take_overall_damage(burn = 60)
 			sinner.flash_act()
 	to_chat(owner, span_warning("[sinner] is rended asunder!"))
@@ -577,40 +597,6 @@
 //this is a general proc to remove the halo for powers that would otherwise keep it too long
 /datum/discipline_power/truefaith/proc/clear_halo(mob/living/carbon/human/owner)
 	owner.remove_overlay(MUTATIONS_LAYER)
-
-/obj/item/melee/touch_attack/truefaith_heal
-	name = "\improper faithful hand"
-	desc = "Through the LORD, all things are possible."
-	hitsound = 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg'
-	invocation = null
-	icon_state = "fleshtostone"
-	inhand_icon_state = "fleshtostone"
-
-/obj/item/melee/touch_attack/truefaith_heal/attack(mob/target, mob/living/user)
-	. = ..()
-	if(target == user && isliving(target))
-		return COMPONENT_CANCEL_ATTACK_CHAIN
-	var/datum/splat/vampire/kindred = target
-	var/datum/st_stat/morality_path/morality/stat_morality = kindred?.storyteller_stats[STAT_MORALITY]
-	if(iskindred(target) && (target.morality_path?.alignment == MORALITY_HUMANITY) && (target.morality_path?.score >= 8))
-		target.do_jitter_animation(10 SECONDS)
-		target.apply_damage(10, BURN, user.zone_selected)
-		target.apply_damage(25, CLONE, user.zone_selected)
-		target.flash_act()
-		target.adjust_fire_stacks(1)
-		target.IgniteMob()
-		playsound(M, 'modular_darkpack/modules/numina/sound/skin_sizzle.ogg', 25, TRUE, 3)
-		return
-	target.adjust_brute_loss(-10, TRUE)
-	target.adjust_fire_loss(-10, TRUE)
-	target.adjust_tox_loss(-25, TRUE)
-	target.adjust_oxy_loss(-25, TRUE)
-	target.adjust_agg_loss(-25, TRUE)
-	if((ishuman(target)) && (!iskindred(target)))
-		target.reagents.add_reagent(/datum/reagent/determination, 10)
-	if(isgarou(H))
-		H.auspice.rage -= 4
-	return
 
 /datum/action/numina/truefaith_action/miracle
 	name = "Miracle"
@@ -635,7 +621,6 @@
 	name = "\improper faithful hand"
 	desc = "Through the LORD, all things are possible."
 	hitsound = 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg'
-	invocation = null
 	icon_state = "fleshtostone"
 	inhand_icon_state = "fleshtostone"
 
@@ -643,24 +628,33 @@
 	. = ..()
 	if(target == user && isliving(target))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
-	var/mob/living/M = target //We still want the healing effects to affect animals and such.
-	var/mob/living/carbon/human/H = target
-	if(iskindred(H) && ((target.morality_path?.alignment != MORALITY_HUMANITY) || (target.morality_path?.score <= 8)))
-		H.do_jitter_animation(10 SECONDS)
-		H.apply_damage(10, BURN, user.zone_selected)
-		H.apply_damage(25, CLONE, user.zone_selected)
-		H.flash_act()
-		H.adjust_fire_stacks(1)
-		H.IgniteMob()
-		playsound(M, 'modular_darkpack/modules/numina/sound/skin_sizzle.ogg', 25, TRUE, 3)
+	if(!isliving(target))
+		return COMPONENT_CANCEL_ATTACK_CHAIN
+	var/mob/living/living_target = target // We still want the healing effects to affect animals and such.
+	var/mob/living/carbon/human/human_target = living_target
+	var/datum/st_stat/morality_path/morality/stat_morality = null
+	if(human_target)
+		stat_morality = human_target.storyteller_stats[STAT_MORALITY]
+	var/datum/morality/morality_path = stat_morality?.morality_path
+	var/morality_alignment = morality_path?.alignment
+	var/morality_score = stat_morality?.get_score()
+	if(iskindred(living_target) && ((morality_alignment != MORALITY_HUMANITY) || (morality_score <= 8)))
+		living_target.do_jitter_animation(10 SECONDS)
+		living_target.apply_damage(10, BURN, user.zone_selected)
+		living_target.apply_damage(25, AGGRAVATED, user.zone_selected)
+		living_target.flash_act()
+		living_target.adjust_fire_stacks(1)
+		living_target.ignite_mob()
+		playsound(living_target, 'modular_darkpack/modules/numina/sound/skin_sizzle.ogg', 25, TRUE, 3)
 		return
-	target.adjust_brute_loss(-10, TRUE)
-	target.adjust_fire_loss(-10, TRUE)
-	target.adjust_tox_loss(-25, TRUE)
-	target.adjust_oxy_loss(-25, TRUE)
-	target.adjust_agg_loss(-25, TRUE)
-	if((ishuman(target)))
-		target.reagents.add_reagent(/datum/reagent/determination, 10)
-	if(isgarou(H))
-		H.auspice.rage -= 4
+	living_target.adjust_brute_loss(-10, TRUE)
+	living_target.adjust_fire_loss(-10, TRUE)
+	living_target.adjust_tox_loss(-25, TRUE)
+	living_target.adjust_oxy_loss(-25, TRUE)
+	living_target.adjust_agg_loss(-25, TRUE)
+	if(ishuman(living_target))
+		human_target.reagents.add_reagent(/datum/reagent/determination, 10)
+	var/datum/splat/werewolf/shifter/shifter_splat = get_shifter_splat(living_target)
+	if(shifter_splat)
+		shifter_splat.rage -= 4
 	return
