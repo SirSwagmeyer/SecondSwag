@@ -188,8 +188,6 @@
 		to_chat(target, span_userlove("You feel a searing pain. An all-consuming terror courses through your being. You have to get away from here!"))
 
 		GLOB.move_manager.move_away(target, owner, 10, target.cached_multiplicative_slowdown)
-		for(var/i in 1 to 30)
-			addtimer(cb, (i - 1) * target.cached_multiplicative_slowdown())
 		if(HAS_TRAIT(target, TRAIT_REPELLED_BY_HOLINESS))
 			target.emote("scream")
 			target.set_confusion(20 SECONDS)
@@ -373,9 +371,10 @@
 		return
 
 	var/datum/splat/vampire/kindred = target
+	var/datum/st_stat/morality_path/morality/stat_morality = kindred?.storyteller_stats[STAT_MORALITY]
 	if(iskindred(target))
-		if(target.morality_path?.alignment == MORALITY_HUMANITY)
-			switch(target_morality?.morality_path?.score)
+		if(stat_morality?.morality_path?.alignment == MORALITY_HUMANITY)
+			switch(stat_morality?.get_score())
 				if(0)
 					to_chat(owner, span_ghostalert("Whoever they were is no longer here."))
 					return
@@ -392,8 +391,8 @@
 					return
 				else
 					return
-		if(target.morality_path?.alignment != MORALITY_ENLIGHTENMENT)
-			switch(target.morality_path?.score)
+		if(kindred?.morality_path?.alignment != MORALITY_ENLIGHTENMENT)
+			switch(stat_morality?.get_score())
 				if(0)
 					to_chat(owner, span_ghostalert("Whoever they were is no longer here."))
 					return
@@ -419,7 +418,8 @@
 		return
 	var/datum/splat/werewolf/shifter = target
 	if(isgarou(target))
-		switch(target.clan)
+		var/clan = shifter.auspice
+		switch(clan)
 			if("Ahroun")
 				to_chat(owner, span_notice("[target] is seemingly always angry."))
 				return
@@ -537,8 +537,6 @@
 	sinner.apply_overlay(MUTATIONS_LAYER)
 
 	GLOB.move_manager.move_away(target, owner, 10, target.cached_multiplicative_slowdown)
-	for(var/i in 1 to 30)
-		addtimer(cb, (i - 1) * sinner.total_multiplicative_slowdown())
 	if(iskindred(sinner))
 		if(HAS_TRAIT(target, TRAIT_REPELLED_BY_HOLINESS))
 			sinner.emote("scream")
@@ -583,7 +581,7 @@
 /obj/item/melee/touch_attack/truefaith_heal
 	name = "\improper faithful hand"
 	desc = "Through the LORD, all things are possible."
-	sound = 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg'
+	hitsound = 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg'
 	invocation = null
 	icon_state = "fleshtostone"
 	inhand_icon_state = "fleshtostone"
@@ -592,15 +590,15 @@
 	. = ..()
 	if(target == user && isliving(target))
 		return COMPONENT_CANCEL_ATTACK_CHAIN
-	var/mob/living/M = target //We still want the healing effects to affect animals and such.
-	var/mob/living/carbon/human/H = target
-	if(iskindred(H) && ((target.morality_path?.alignment != MORALITY_HUMANITY) || (target.morality_path?.score <= 8)))
-		H.do_jitter_animation(10 SECONDS)
-		H.apply_damage(10, BURN, user.zone_selected)
-		H.apply_damage(25, CLONE, user.zone_selected)
-		H.flash_act()
-		H.adjust_fire_stacks(1)
-		H.IgniteMob()
+	var/datum/splat/vampire/kindred = target
+	var/datum/st_stat/morality_path/morality/stat_morality = kindred?.storyteller_stats[STAT_MORALITY]
+	if(iskindred(target) && (target.morality_path?.alignment == MORALITY_HUMANITY) && (target.morality_path?.score >= 8))
+		target.do_jitter_animation(10 SECONDS)
+		target.apply_damage(10, BURN, user.zone_selected)
+		target.apply_damage(25, CLONE, user.zone_selected)
+		target.flash_act()
+		target.adjust_fire_stacks(1)
+		target.IgniteMob()
 		playsound(M, 'modular_darkpack/modules/numina/sound/skin_sizzle.ogg', 25, TRUE, 3)
 		return
 	target.adjust_brute_loss(-10, TRUE)
@@ -636,7 +634,7 @@
 /obj/item/melee/touch_attack/truefaith_heal
 	name = "\improper faithful hand"
 	desc = "Through the LORD, all things are possible."
-	sound = 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg'
+	hitsound = 'modular_darkpack/modules/numina/sound/truefaith_power_small.ogg'
 	invocation = null
 	icon_state = "fleshtostone"
 	inhand_icon_state = "fleshtostone"
