@@ -18,6 +18,11 @@
 	)
 	allowed_splats = list(SPLAT_NONE)
 
+/datum/job/vampire/abbe/after_spawn(mob/living/spawned, client/player_client)
+	. = ..()
+	if(ishuman(spawned))
+		spawned.add_traits(list(TRAIT_IMMUNE_TO_DOMINATE, TRAIT_IMMUNE_TO_PRESENCE), JOB_TRAIT)
+
 /datum/outfit/job/vampire/abbe
 	name = "Abbe"
 	jobtype = /datum/job/vampire/abbe

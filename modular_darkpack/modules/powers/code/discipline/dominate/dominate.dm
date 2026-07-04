@@ -98,6 +98,9 @@
 		else
 			return TRUE
 
+	if(HAS_TRAIT(target, TRAIT_IMMUNE_TO_DOMINATE))
+		return FALSE
+
 	if(HAS_TRAIT(target, TRAIT_CANNOT_RESIST_MIND_CONTROL))
 		if(numerical == TRUE)
 			return 8
@@ -112,6 +115,9 @@
 
 	if(HAS_TRAIT(target, TRAIT_WEAK_WILLED))
 		theirpower -= 2
+
+	if(HAS_TRAIT(target, TRAIT_RESIST_DOMINATE))
+		theirpower += 4
 
 	if((!(owner.obscured_slots & HIDEFACE))&(HAS_TRAIT(owner, TRAIT_DISFIGURED_APPEARANCE))) // Are we visibly disfigured?
 		theirpower += 2

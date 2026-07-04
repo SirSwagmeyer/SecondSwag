@@ -188,7 +188,7 @@
 // Crossbow Bolt
 /obj/projectile/bullet/crossbow_bolt
 	name = "bolt"
-	damage = 45
+	damage = 90
 	armour_penetration = 75
 	sharpness = SHARP_POINTY
 

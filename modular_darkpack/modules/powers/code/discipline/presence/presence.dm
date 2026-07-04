@@ -23,6 +23,10 @@
 	if(!ishuman(target))
 		return FALSE
 
+	if(HAS_TRAIT(target, TRAIT_IMMUNE_TO_PRESENCE))  //I only realized PRESENCE_IMMUNE was a thing after I already coded everything with IMMUNE_TO_PRESENCE </3
+		to_chat(owner, span_warning("[target] is completely immune to your presence."))
+		return FALSE
+
 	if(HAS_TRAIT(target, TRAIT_PRESENCE_IMMUNE))
 		to_chat(owner, span_warning("A presence attempt has botched against this person and they may no longer have Presence used on them for the rest of the night."))
 		return FALSE
@@ -33,6 +37,9 @@
 	// Do we have traits to modify our difficulties?
 	if((!(owner.obscured_slots & HIDEFACE))&(HAS_TRAIT(owner, TRAIT_DISFIGURED_APPEARANCE))) // Are we visibly disfigured?
 		theirpower += 2 // Increase the difficulty by two.
+
+	if(HAS_TRAIT(target, TRAIT_RESIST_PRESENCE))
+		theirpower += 4
 
 	if(!get_kindred_splat(target)) // Is our target mortal?
 		if(HAS_TRAIT(owner, TRAIT_GRAVE_SMELL)) // Are we stinky?

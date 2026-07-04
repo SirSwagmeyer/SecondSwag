@@ -19,6 +19,11 @@
 	splat_slots = list(SPLAT_GHOUL = 1, SPLAT_KINFOLK = 1, SPLAT_NONE = 3)
 	allowed_splats = list(SPLAT_NONE, SPLAT_GHOUL, SPLAT_KINFOLK) // infiltrators and betrayal arcs
 
+/datum/job/vampire/inquisitor/after_spawn(mob/living/spawned, client/player_client)
+	. = ..()
+	if(ishuman(spawned))
+		spawned.add_traits(list(TRAIT_RESIST_DOMINATE, TRAIT_RESIST_PRESENCE), JOB_TRAIT)
+
 /datum/outfit/job/vampire/inquisitor
 	name = "Inquisitor"
 	jobtype = /datum/job/vampire/inquisitor
