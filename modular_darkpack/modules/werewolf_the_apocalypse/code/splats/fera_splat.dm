@@ -148,9 +148,9 @@
 	regain_gnosis_process(seconds_per_tick)
 	// Crinos heal in all forms. Lupus and homid born dont heal FAST FAST in their breed form.
 	// their fast healing is represented in day/days in breed-form so we just dont.
-	var/can_passively_regen = !(is_breed_form() && (get_breed_form_species() != /datum/species/human/shifter/war))
+	var/can_passively_heal = !(is_breed_form() && (get_breed_form_species() != /datum/species/human/shifter/war))
 	if(COOLDOWN_FINISHED(src, passive_healing_cd))
-		if(can_passively_regen)
+		if(can_passively_heal)
 			// 2 to represent lethal. Fera passive regen now also closes burn/aggravated damage.
 			owner.heal_storyteller_health(2, heal_aggravated = TRUE, heal_scars = TRUE, heal_blood = TRUE)
 			// Keep organ healing ticking so internal damage recovers even between major regrowth pulses.
@@ -163,7 +163,7 @@
 			owner.adjust_organ_loss(ORGAN_SLOT_EARS, -0.5 * seconds_per_tick, required_organ_flag = ORGAN_ORGANIC)
 		COOLDOWN_START(src, passive_healing_cd, 1 TURNS)
 
-	if(can_passively_regen && COOLDOWN_FINISHED(src, passive_regrowth_cd))
+	if(COOLDOWN_FINISHED(src, passive_regrowth_cd))
 		owner.regenerate_organs()
 		if(length(owner.get_missing_limbs()))
 			owner.regenerate_limbs()
