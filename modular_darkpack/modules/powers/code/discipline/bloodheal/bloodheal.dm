@@ -90,13 +90,16 @@
 	// Let core species logic handle restoring/healing organs so missing eyes are rebuilt correctly.
 	owner.regenerate_organs()
 	owner.cure_blind(QUIRK_TRAIT)
+	owner.cure_blind(EYE_DAMAGE)
+	owner.cure_blind(EYE_SCARRING_TRAIT)
 	owner.cure_nearsighted(QUIRK_TRAIT)
+	owner.cure_nearsighted(EYE_DAMAGE)
 	var/obj/item/organ/eyes/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
 	if (eyes)
 		eyes.fix_scar(LEFT_EYE_SCAR)
 		eyes.fix_scar(RIGHT_EYE_SCAR)
-	owner.adjust_temp_blindness(-HEAL_AGGRAVATED_DAMAGE * vitae_cost)
-	owner.adjust_eye_blur(-HEAL_AGGRAVATED_DAMAGE * vitae_cost)
+	owner.remove_status_effect(/datum/status_effect/temporary_blindness)
+	owner.remove_status_effect(/datum/status_effect/eye_blur)
 
 	if(get_kindred_splat(owner) && length(owner.get_missing_limbs()))
 		owner.regenerate_limbs()
