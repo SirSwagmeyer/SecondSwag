@@ -89,12 +89,17 @@
 
 	// Let core species logic handle restoring/healing organs so missing eyes are rebuilt correctly.
 	owner.regenerate_organs()
+	var/obj/item/organ/eyes/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
+	if (!eyes)
+		var/eyes_type = owner.dna?.species?.get_mutant_organ_type_for_slot(ORGAN_SLOT_EYES) || /obj/item/organ/eyes
+		eyes = new eyes_type()
+		eyes.Insert(owner, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+	owner.cure_blind(NO_EYES)
 	owner.cure_blind(QUIRK_TRAIT)
 	owner.cure_blind(EYE_DAMAGE)
 	owner.cure_blind(EYE_SCARRING_TRAIT)
 	owner.cure_nearsighted(QUIRK_TRAIT)
 	owner.cure_nearsighted(EYE_DAMAGE)
-	var/obj/item/organ/eyes/eyes = owner.get_organ_slot(ORGAN_SLOT_EYES)
 	if (eyes)
 		eyes.fix_scar(LEFT_EYE_SCAR)
 		eyes.fix_scar(RIGHT_EYE_SCAR)
