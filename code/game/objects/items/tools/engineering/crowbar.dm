@@ -74,10 +74,8 @@
 
 /obj/item/crowbar/hammer
 	name = "claw hammer"
-	//DARKPACK EDIT START - Melee Weapon Rebalance
-	desc = "A heavy hammer with a pry bar on the back of its head. This weighty tool can be used as a weapon or a crowbar." //DARKPACK EDIT CHANGE - ORIGINAL: 	desc = "It's a heavy hammer with a pry bar on the back of its head. Nails aren't common in space, but this tool can still be used as a weapon or a crowbar."
-	force = 2.3 TTRPG_DAMAGE //DARKPACK EDIT - ORIGINAL: force = 11
-	//DARKPACK EDIT END - Melee Weapon Rebalance
+	desc = "A heavy hammer with a pry bar on the back of its head. This weighty tool can be used as a weapon or a crowbar." // DARKPACK EDIT CHANGE - ORIGINAL: 	desc = "It's a heavy hammer with a pry bar on the back of its head. Nails aren't common in space, but this tool can still be used as a weapon or a crowbar."
+	force = 2.3 TTRPG_DAMAGE // DARKPACK EDIT CHANGE - ORIGINAL: force = 11
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/obj/weapons/hammer.dmi'
 	icon_state = "clawhammer"
