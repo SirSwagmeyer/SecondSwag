@@ -14,8 +14,7 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	//wow, lore
 	//DARKPACK EDIT START - Melee Weapon Rebalance
-	desc = "A hefty lead pipe. Lead is an uncommon sight in San after being phased out due to employee health concerns." //DARKPACK EDIT CHANGE - ORIGINAL: desc = "A hefty lead pipe.\nLead is an uncommon sight in this sector after being phased out due to employee health concerns. \
-	\nThose of a more cynical disposition have claimed that the NT lead ban is a scheme to prevent diversion to Syndicate ammunition factories."
+	desc = "A hefty lead pipe. Lead is an uncommon sight in San after being phased out due to employee health concerns." 
 	force = 2.5 TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 15
 	throwforce = 20	//DARKPACK EDIT CHANGE - ORIGINAL: force = 12
 	throw_range = 4
