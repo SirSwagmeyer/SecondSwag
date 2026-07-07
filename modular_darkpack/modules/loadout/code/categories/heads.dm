@@ -108,3 +108,43 @@
 
 /datum/loadout_item/head/beret
 	item_path = /obj/item/clothing/head/beret
+
+/datum/loadout_item/head/top_hat
+	name = "Top Hat"
+	item_path = /obj/item/clothing/head/hats/tophat
+
+/datum/loadout_item/head/bowler_hat
+	name = "Bowler Hat"
+	item_path = /obj/item/clothing/head/hats/bowler
+
+/datum/loadout_item/head/bear_pelt
+	name = "Bear Pelt"
+	item_path = /obj/item/clothing/head/costume/bearpelt
+
+/datum/loadout_item/head/ushanka
+	name ="Ushanka"
+	item_path = /obj/item/clothing/head/costume/ushanka
+
+/datum/loadout_item/head/rose
+	name = "Rose"
+	item_path = /obj/item/food/grown/rose
+
+/datum/loadout_item/head/sunflower
+	name = "Sunflower"
+	item_path = /obj/item/food/grown/sunflower
+
+/datum/loadout_item/head/poppy
+	name = "Poppy"
+	item_path = /obj/item/food/grown/poppy
+
+/datum/loadout_item/head/lily
+	name = "Lily"
+	item_path = /obj/item/food/grown/poppy/lily
+
+/datum/loadout_item/head/geranium
+	name = "Geranium"
+	item_path = /obj/item/food/grown/poppy/geranium
+
+/datum/loadout_item/head/harebell
+	name = "Harebell"
+	item_path = /obj/item/food/grown/harebell
