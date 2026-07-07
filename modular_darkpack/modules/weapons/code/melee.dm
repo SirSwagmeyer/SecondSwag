@@ -44,7 +44,7 @@
 	//DARKPACK EDIT START - Melee Weapon Rebalance
 	//You can technically block with a Katana, but not nearly as effectively as a longsword.
 	//Bonus against bare flesh, but not against armor. This is a KATANA, not a chainsaw.
-	force = 1.75 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
+	force = 2 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
 	block_chance = 20 //DARKPACK EDIT CHANGE - ORIGINAL: block_chance = 50
 	exposed_wound_bonus = 30 //DARKPACK EDIT CHANGE - ORIGINAL: exposed_wound_bonus = 0
 	wound_bonus = 20 //DARKPACK EDIT CHANGE - ORIGINAL: wound_bonus = 0
@@ -111,9 +111,9 @@
 
 	// WTA pg. 302
 	//DARKPACK EDIT START - Melee Weapon Rebalance
-	force = 1.5 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
+	force = 1 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
 	block_chance = 40
-	armour_penetration = 30	//DARKPACK EDIT CHANGE - ORIGINAL: armour_penetration = 50
+	armour_penetration = 40	//DARKPACK EDIT CHANGE - ORIGINAL: armour_penetration = 50
 	//DARKPACK EDIT END - Melee Weapon Rebalance
 
 	var/value = 1000 // DARKPACK TODO: Move this up at some point. I hate the selling component with all my heart.
@@ -134,7 +134,7 @@
 	// WTA pg. 302
 	//A 40 damage rapier is comically overpowered, no matter what the book says.
 	//DARKPACK EDIT START - Melee Weapon Rebalance
-	force = 1.25 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
+	force = 1 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
 	wound_bonus = 0
 	exposed_wound_bonus = 0
 	attack_difficulty = 7 //DARKPACK EDIT CHANGE - ORIGINAL: attack_difficulty = 6
@@ -187,8 +187,8 @@
 	masquerade_violating = FALSE
 	custom_price = 500
 	//DARKPACK EDIT START - Melee Weapon Rebalance
-	force = 1.5 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 1 LETHAL_TTRPG_DAMAGE
-	exposed_wound_bonus = 20 //...The serrated edge makes it hurt like hell.
+	force = 1 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 1 LETHAL_TTRPG_DAMAGE
+	exposed_wound_bonus = 50 //...The serrated edge makes it hurt like hell.
 	block_chance = 10 //DARKPACK EDIT CHANGE - ORIGINAL: block_chance = 30
 	//DARKPACK EDIT END - Melee Weapon Rebalance
 	attack_difficulty = 5 // Slightly worse handling then a knife.
@@ -302,7 +302,7 @@
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "handsickle"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
-	force = 1.75 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
+	force = 2 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
 	attack_verb_continuous = list("slashes", "cuts", "reaps")
 	attack_verb_simple = list("slash", "cut", "reap")
 	hitsound = 'sound/items/weapons/slash.ogg'
