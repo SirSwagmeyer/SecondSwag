@@ -1026,3 +1026,59 @@
 	name = "Maid Headband Inhands Right"
 	icon_file = 'icons/mob/inhands/clothing/hats_righthand.dmi'
 	json_config = 'code/datums/greyscale/json_configs/maid.json'
+
+//cowboy hats, icons
+
+/datum/greyscale_config/cowboy_wide
+	name = "Wide brimmed hat"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
+	json_config = 'modular_darkpack/modules/clothes/json_configs/head/cowboy/widebrim.json'
+
+/datum/greyscale_config/cowboy_wide/worn
+	name = "Wide brimmed hat (Worn)"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+
+/datum/greyscale_config/cowboy_flat
+	name = "Flat brimmed hat"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
+	json_config = 'modular_darkpack/modules/clothes/json_configs/flatbrim.json'
+
+/datum/greyscale_config/cowboy_flat/worn
+	name = "Flat brimmed hat (Worn)"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+
+/datum/greyscale_config/cowboy_flat_cowl
+	name = "Flat brimmed cowled hat"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
+	json_config = 'modular_darkpack/modules/clothes/json_configs/flatbrim_cowl.json'
+
+/datum/greyscale_config/cowboy_flat_cowl/worn
+	name = "Flat brimmed cowled hat (worn)"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+
+/datum/greyscale_config/cowboy_wide_feathered
+	name = "Wide brimmed feathered hat"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
+	json_config = 'modular_darkpack/modules/clothes/json_configs/widebrim_feathered.json'
+
+/datum/greyscale_config/cowboy_wide_feathered/worn
+	name = "Wide brimmed feathered hat (Worn)"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+
+/datum/greyscale_config/cowboy_cattleman
+	name = "Cattleman hat"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
+	json_config = 'modular_darkpack/modules/clothes/json_configs/cattleman.json'
+
+/datum/greyscale_config/cowboy_cattleman/worn
+	name = "Cattleman hat (Worn)"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+
+/datum/greyscale_config/cowboy_cattleman_wide
+	name = "Wide cattleman hat"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
+	json_config = 'modular_darkpack/modules/clothes/json_configs/cattleman_wide.json'
+
+/datum/greyscale_config/cowboy_cattleman_wide/worn
+	name = "Wide cattleman hat (Worn)"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
