@@ -242,3 +242,24 @@
 /datum/loadout_item/uniform/black_overcoat
 	name = "Overcoat (Black)"
 	item_path = /obj/item/clothing/under/vampire/rich
+//DARKPACK ADD START - Loadout + Fashion Overhaul
+
+/datum/loadout_item/jumpsuit/assistant
+	name = "Jumpsuit (Grey)"
+	item_path = /obj/item/clothing/under/color/grey
+
+
+/datum/loadout_item/costume/brujah
+	name = "Jabroni Outfit"
+	item_path = /obj/item/clothing/under/costume/jabroni
+
+
+/datum/loadout_item/costume/redcoat
+	name = "Redcoat Outfit"
+	item_path = /obj/item/clothing/under/costume/redcoat
+
+
+/datum/loadout_item/costume/kilt
+	name = "Kilt"
+	item_path = /obj/item/clothing/under/costume/kilt
+//DARKPACK ADD END - Loadout + Fashion Overhaul

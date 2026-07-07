@@ -152,3 +152,37 @@
 /datum/loadout_item/suit/robes/blue
 	name = "Robes (Blue)"
 	item_path = /obj/item/clothing/suit/hooded/robes/blue
+//DARKPACK ADD START - Loadout + Fashion Overhaul
+
+/datum/loadout_item/suit/top/hawaiian_shirt
+	name = "Hawaiian Shirt"
+	item_path = /obj/item/clothing/suit/costume/hawaiian
+
+/datum/loadout_item/suit/top/wellwornshirt
+	name = "Well-worn Shirt"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt
+
+/datum/loadout_item/suit/top/wellworn_graphicshirt
+	name = "Well-worn Graphic Shirt"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/graphic
+
+/datum/loadout_item/suit/top/ianshirt
+	name = "Well-worn Ian Shirt"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/graphic/ian
+
+/datum/loadout_item/suit/top/wornoutshirt
+	name = "Worn-out Shirt"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/wornout
+
+/datum/loadout_item/suit/top/wornout_graphicshirt
+	name = "Worn-out Graphic Shirt"
+	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/wornout/graphic
+
+/datum/loadout_item/suit/coat/tmc
+	name = "Bay Bikers Jacket"
+	item_path = /obj/item/clothing/suit/costume/tmc
+
+/datum/loadout_item/suit/coat/pg
+	name = "Pacific Gangster Jacket"
+	item_path = /obj/item/clothing/suit/costume/pg
+//DARKPACK ADD END - Loadout + Fashion Overhaul

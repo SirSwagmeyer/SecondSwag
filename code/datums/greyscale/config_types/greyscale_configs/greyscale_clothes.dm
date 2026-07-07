@@ -1028,6 +1028,7 @@
 	json_config = 'code/datums/greyscale/json_configs/maid.json'
 
 //cowboy hats, icons
+//DARKPACK ADD START - Loadout + Fashion Overhaul
 
 /datum/greyscale_config/cowboy_wide
 	name = "Wide brimmed hat"
@@ -1082,3 +1083,52 @@
 /datum/greyscale_config/cowboy_cattleman_wide/worn
 	name = "Wide cattleman hat (Worn)"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+
+/datum/greyscale_config/faceplate_eyes
+	name = "Faceplate Mask"
+	json_config = 'modular_darkpack/modules/clothes/json_configs/faceplate_eyes.json'
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+
+/datum/greyscale_config/faceplate_eyes/worn
+	name = "Faceplate Mask (Worn)"
+	json_config = 'modular_darkpack/modules/clothes/json_configs/faceplate_eyes.json'
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+
+/datum/greyscale_config/faceplate
+	name = "Faceplate Mask"
+	json_config = 'modular_darkpack/modules/clothes/json_configs/faceplate.json'
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+
+/datum/greyscale_config/faceplate/worn
+	name = "Faceplate Mask (Worn)"
+	json_config = 'modular_darkpack/modules/clothes/json_configs/faceplate.json'
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+
+/datum/greyscale_config/neck_gaiter
+	name = "Neck Gaiter"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
+	json_config = 'modular_darkpack/modules/clothes/json_configs/gaiter.json'
+
+/datum/greyscale_config/neck_gaiter/worn
+	name = "Neck Gaiter (Worn)"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+	json_config = 'modular_darkpack/modules/clothes/json_configs/gaiter_worn.json'
+
+/datum/greyscale_config/long_cape
+	name = "Long Cape"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/color_worn.dmi'
+	json_config = 'modular_darkpack/modules/clothes/json_configs/long_cape.json'
+
+/datum/greyscale_config/long_cape/worn
+	name = "Long Cape (Worn)"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+
+/datum/greyscale_config/wide_cape
+	name = "Wide Cape"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/color_worn.dmi'
+	json_config = 'modular_darkpack/modules/clothes/json_configs/wide_cape.json'
+
+/datum/greyscale_config/wide_cape/worn
+	name = "Wide Cape (Worn)"
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
+//DARKPACK ADD END - Loadout + Fashion Overhaul

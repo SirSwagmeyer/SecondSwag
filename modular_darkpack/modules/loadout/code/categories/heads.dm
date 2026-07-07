@@ -148,3 +148,39 @@
 /datum/loadout_item/head/harebell
 	name = "Harebell"
 	item_path = /obj/item/food/grown/harebell
+
+//DARKPACK ADD START - Loadout + Fashion Overhaul
+
+/datum/loadout_item/head/hats/cowboy_wide_feathered
+	name = "Wide-Brimmed Hat (Feathered)"
+	item_path = /obj/item/clothing/head/cowboy/fancy/wide/feathered
+
+/datum/loadout_item/head/hats/cowboy_wide
+	name = "Wide-Brimmed Hat"
+	item_path = /obj/item/clothing/head/cowboy/fancy/wide
+
+/datum/loadout_item/head/hats/cowboy_cattleman_wide
+	name = "Cattleman Hat (Wide)"
+	item_path = /obj/item/clothing/head/cowboy/fancy/cattleman/wide
+
+/datum/loadout_item/head/hats/cowboy_cattleman
+	name = "Cattleman Hat"
+	item_path = /obj/item/clothing/head/cowboy/fancy/cattleman
+
+/datum/loadout_item/head/hats/flat_brim
+	name = "Flat-Brimmed Hat"
+	item_path = /obj/item/clothing/head/cowboy/fancy/flat
+
+/datum/loadout_item/head/hats/cowboy_flat_cowl
+	name = "Flat-Brimmed Cowled Hat"
+	item_path = /obj/item/clothing/head/cowboy/fancy/flat/cowl
+
+/datum/loadout_item/head/costume/propeller_hat
+	name = "Propeller Hat"
+	item_path = /obj/item/clothing/head/soft/propeller_hat
+
+/datum/loadout_item/head/costume/kitty_ears
+	name = "Kitty Ears"
+	item_path = /obj/item/clothing/head/costume/kitty
+
+//DARKPACK ADD END - Loadout + Fashion Overhaul

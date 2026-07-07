@@ -385,7 +385,6 @@
 	icon_state = null //Keeps this from showing up under the chameleon hat
 	worn_icon_state = null //TG defaults this to "hunter" and breaks our items
 	armor_type = /datum/armor/cosmetic_sec //slighlty weaker than a helmet because it inherits the ability to be shot off in place of your head
-	//there used to be a change to resistance flags here, it's gone now
 
 /obj/item/clothing/head/cowboy/fancy/wide
 	name = "wide brimmed hat"
@@ -450,3 +449,4 @@
 	greyscale_config = /datum/greyscale_config/cowboy_cattleman_wide
 	greyscale_config_worn = /datum/greyscale_config/cowboy_cattleman_wide/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+//DARKPACK ADD END - NEW HATS

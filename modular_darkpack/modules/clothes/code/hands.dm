@@ -80,3 +80,40 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
+//DARKPACK ADD START - Loadout + Fashion Overhaul
+
+/obj/item/clothing/gloves/rugged
+	name = "leather gloves"
+	desc = "Calfskin gloves with a generous cut and fit."
+	icon = 'modular_darkpack/modules/clothes/icons/clothing/gloves.dmi'
+	icon_state = "rugged_1"
+	worn_icon = 'modular_darkpack/modules/clothes/icons/clothing/worn/color_worn.dmi'
+	cold_protection = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
+	worn_icon_state = "rugged_1"
+
+/obj/item/clothing/gloves/rugged/work_gloves
+	name = "work gloves"
+	desc = "Textile work gloves with a close fit, cut and sewn from a synthetic tech fabric."
+	icon_state = "rugged_2"
+	worn_icon_state = "rugged_2"
+
+/obj/item/clothing/gloves/rugged/colorblock_gauntlets
+	name = "colorblock gauntlets"
+	desc = "Brown leather gauntlets with nylon fingertips."
+	icon_state = "rugged_3"
+	worn_icon_state = "rugged_3"
+
+/obj/item/clothing/gloves/rugged/gauntlets
+	name = "leather gauntlets"
+	desc = "A pair of leather gauntlets that reach halfway up the forearms."
+	icon_state = "rugged_4"
+	worn_icon_state = "rugged_4"
+
+/obj/item/clothing/gloves/rugged/fingerless
+	name = "fingerless gloves"
+	desc = "Soft nubuck gloves with raw cut edges where the fingertips were severed in a hasty moment of rear warehouse passion."
+	icon_state = "rugged_fingerless"
+	worn_icon_state = "rugged_fingerless"
+	clothing_traits = list(TRAIT_FINGERPRINT_PASSTHROUGH)
+//DARKPACK ADD END- Loadout + Fashion Overhaul
