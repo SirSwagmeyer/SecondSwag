@@ -84,7 +84,7 @@
 	righthand_file = 'icons/mob/inhands/weapons/hammers_righthand.dmi'
 	inhand_icon_state = "clawhammer"
 	inside_belt_icon_state = "clawhammer"
-	throwforce = 20 //DARKPACK EDIT - ORIGINAL: throwforce = 10
+	throwforce = 20 // DARKPACK EDIT CHANGE - ORIGINAL: throwforce = 10
 	throw_range = 5
 	throw_speed = 3
 	toolspeed = 2
