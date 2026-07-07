@@ -25,6 +25,10 @@
 	force_unwielded = 2 TTRPG_DAMAGE // Made up lol.
 	force_wielded = 3 LETHAL_TTRPG_DAMAGE
 	attack_difficulty = 7
+	//DARKPACK EDIT START - Melee Weapon Rebalance
+	demolition_mod = 1.50 //BREAK THINGS.
+	armour_penetration = 20
+	//DARKPACK EDIT END - Melee Weapon Rebalance
 
 	pixel_w = -8
 	custom_price = 1800
@@ -39,7 +43,14 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 
 	// WTA pg. 302
-	force = 2 LETHAL_TTRPG_DAMAGE
+	//DARKPACK EDIT START - Melee Weapon Rebalance
+	//You can technically block with a Katana, but not nearly as effectively as a longsword.
+	//Bonus against bare flesh, but not against armor. This is a KATANA, not a chainsaw.
+	force = 1.75 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
+	block_chance = 20 //DARKPACK EDIT CHANGE - ORIGINAL: block_chance = 50
+	exposed_wound_bonus = 30 //DARKPACK EDIT CHANGE - ORIGINAL: exposed_wound_bonus = 0
+	wound_bonus = 20 //DARKPACK EDIT CHANGE - ORIGINAL: wound_bonus = 0
+	//DARKPACK EDIT END - Melee Weapon Rebalance
 
 	pixel_w = -8
 	custom_price = 1300
@@ -101,9 +112,12 @@
 	icon_state = "sabre"
 
 	// WTA pg. 302
-	force = 2 LETHAL_TTRPG_DAMAGE
+	//DARKPACK EDIT START - Melee Weapon Rebalance
+	force = 1.5 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
+	block_chance = 40
+	armour_penetration = 30	//DARKPACK EDIT CHANGE - ORIGINAL: armour_penetration = 50
+	//DARKPACK EDIT END - Melee Weapon Rebalance
 
-	armour_penetration = 50	 //Normally 75 pen, that pens army armor. Instead, 50. Pens bullet proof.
 	var/value = 1000 // DARKPACK TODO: Move this up at some point. I hate the selling component with all my heart.
 
 /obj/item/melee/sabre/vamp/Initialize(mapload)
@@ -120,7 +134,14 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "rapier"
 	// WTA pg. 302
-	force = 2 LETHAL_TTRPG_DAMAGE
+	//A 40 damage rapier is comically overpowered, no matter what the book says.
+	//DARKPACK EDIT START - Melee Weapon Rebalance
+	force = 1.25 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
+	wound_bonus = 0
+	exposed_wound_bonus = 0
+	attack_difficulty = 7 //DARKPACK EDIT CHANGE - ORIGINAL: attack_difficulty = 6
+	sharpness = SHARP_POINTY //darkpack edit change - ORIGINAL: sharpness = SHARP_EDGED
+	//DARKPACK EDIT END - Melee Weapon Rebalance
 	armour_penetration = 50
 
 /obj/item/melee/sabre/rapier/Initialize(mapload)
@@ -144,7 +165,11 @@
 	inhand_icon_state = "longsword"
 	// WTA pg. 302
 	force = 2 LETHAL_TTRPG_DAMAGE
-
+	//DARKPACK EDIT START - Melee Weapon Rebalance
+	w_class = WEIGHT_CLASS_BULKY //DARKPACK EDIT CHANGE - ORIGINAL: w_class = WEIGHT_CLASS_NORMAL
+	attack_difficulty = 8 //DARKPACK EDIT CHANGE - ORIGINAL: attack_difficulty = 6
+	block_chance = 30 //DARKPACK EDIT CHANGE - ORIGINAL: block_chance = 50
+	//DARKPACK EDIT END - Melee Weapon Rebalance
 
 /obj/item/claymore/longsword/Initialize(mapload)
 	. = ..()
@@ -163,9 +188,12 @@
 	pixel_w = -8
 	masquerade_violating = FALSE
 	custom_price = 500
-	force = 1 LETHAL_TTRPG_DAMAGE
+	//DARKPACK EDIT START - Melee Weapon Rebalance
+	force = 1.5 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 1 LETHAL_TTRPG_DAMAGE
+	exposed_wound_bonus = 20 //...The serrated edge makes it hurt like hell.
+	block_chance = 10 //DARKPACK EDIT CHANGE - ORIGINAL: block_chance = 30
+	//DARKPACK EDIT END - Melee Weapon Rebalance
 	attack_difficulty = 5 // Slightly worse handling then a knife.
-	block_chance = 0
 
 /obj/item/claymore/machete/Initialize(mapload)
 	. = ..()
@@ -196,7 +224,7 @@
 	w_class = WEIGHT_CLASS_BULKY	//TG parent bat is huge
 
 	// WTA pg. 302
-	force = 2 TTRPG_DAMAGE
+	force = 3 TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 TTRPG_DAMAGE
 	attack_difficulty = 5
 
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
@@ -228,7 +256,7 @@
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "pipe"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
-	force = 2 LETHAL_TTRPG_DAMAGE
+	force = 2 TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
 	attack_verb_continuous = list("beats", "smacks")
 	attack_verb_simple = list("beat", "smack")
 	w_class = WEIGHT_CLASS_NORMAL
@@ -276,7 +304,7 @@
 	icon = 'modular_darkpack/modules/weapons/icons/weapons.dmi'
 	icon_state = "handsickle"
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
-	force = 2 LETHAL_TTRPG_DAMAGE
+	force = 1.75 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
 	attack_verb_continuous = list("slashes", "cuts", "reaps")
 	attack_verb_simple = list("slash", "cut", "reap")
 	hitsound = 'sound/items/weapons/slash.ogg'
@@ -316,7 +344,8 @@
 
 	// WTA pg. 302
 	// force_on = 7 LETHAL_TTRPG_DAMAGE // Holy fuck thats what its listed as but it also hurts you on a botch..
-	force_on = 6 LETHAL_TTRPG_DAMAGE
+	//Be FR people CANNOT be trusted with a 120 damage weapon
+	force_on = 4 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force_on = 6 LETHAL_TTRPG_DAMAGE
 	force = 2 TTRPG_DAMAGE
 	attack_difficulty = 8
 
@@ -332,7 +361,8 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 	icon_state = "shovel"
 	custom_price = 150
-	force = 1 TTRPG_DAMAGE
+	force = 3 TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 1 TTRPG_DAMAGE
+	sharpness = NONE //Bonk!!!! //DARKPACK EDIT CHANGE - ORIGINAL: sharpness = SHARP_EDGED
 	attack_difficulty = 5
 
 /obj/item/shovel/vamp/attack(mob/living/target, mob/living/user)

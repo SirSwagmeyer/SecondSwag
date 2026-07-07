@@ -13,12 +13,14 @@
 	righthand_file = 'icons/mob/inhands/weapons/melee_righthand.dmi'
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	//wow, lore
-	desc = "A hefty lead pipe.\nLead is an uncommon sight in this sector after being phased out due to employee health concerns. \
+	//DARKPACK EDIT START - Melee Weapon Rebalance
+	desc = "A hefty lead pipe. Lead is an uncommon sight in San after being phased out due to employee health concerns." //DARKPACK EDIT CHANGE - ORIGINAL: desc = "A hefty lead pipe.\nLead is an uncommon sight in this sector after being phased out due to employee health concerns. \
 	\nThose of a more cynical disposition have claimed that the NT lead ban is a scheme to prevent diversion to Syndicate ammunition factories."
-	force = 15
-	throwforce = 12
+	force = 2.5 TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 15
+	throwforce = 20	//DARKPACK EDIT CHANGE - ORIGINAL: force = 12
 	throw_range = 4
-	w_class = WEIGHT_CLASS_BULKY
+	w_class = WEIGHT_CLASS_NORMAL //Sneaky lead pipe in the pocket //DARKPACK EDIT CHANGE - ORIGINAL: w_class = WEIGHT_CLASS_BULKY
+	//DARKPACK EDIT START - Melee Weapon Rebalance
 	wound_bonus = 20
 	demolition_mod = 1.25
 	pickup_sound = 'sound/items/handling/lead_pipe/lead_pipe_pickup.ogg'
