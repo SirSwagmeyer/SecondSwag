@@ -25,10 +25,8 @@
 	force_unwielded = 2 TTRPG_DAMAGE // Made up lol.
 	force_wielded = 3 LETHAL_TTRPG_DAMAGE
 	attack_difficulty = 7
-	//DARKPACK EDIT START - Melee Weapon Rebalance
 	demolition_mod = 1.50 //BREAK THINGS.
 	armour_penetration = 20
-	//DARKPACK EDIT END - Melee Weapon Rebalance
 
 	pixel_w = -8
 	custom_price = 1800
