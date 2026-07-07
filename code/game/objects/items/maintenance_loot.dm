@@ -15,7 +15,7 @@
 	//wow, lore
 	//DARKPACK EDIT START - Melee Weapon Rebalance
 	desc = "A hefty lead pipe... An uncommon sight now due to the side effects of lead in drinking water." 
-	force = 2.5 TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 15
+	force = 3 TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 15
 	throwforce = 20	//DARKPACK EDIT CHANGE - ORIGINAL: force = 12
 	throw_range = 4
 	w_class = WEIGHT_CLASS_NORMAL //Sneaky lead pipe in the pocket //DARKPACK EDIT CHANGE - ORIGINAL: w_class = WEIGHT_CLASS_BULKY
