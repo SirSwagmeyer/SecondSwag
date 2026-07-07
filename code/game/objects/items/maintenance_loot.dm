@@ -14,7 +14,7 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	//wow, lore
 	//DARKPACK EDIT START - Melee Weapon Rebalance
-	desc = "A hefty lead pipe. Lead is an uncommon sight in San after being phased out due to employee health concerns." 
+	desc = "A hefty lead pipe... An uncommon sight now due to the side effects of lead in drinking water." 
 	force = 2.5 TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 15
 	throwforce = 20	//DARKPACK EDIT CHANGE - ORIGINAL: force = 12
 	throw_range = 4
