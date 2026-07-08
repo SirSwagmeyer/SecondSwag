@@ -41,14 +41,12 @@
 	ONFLOOR_ICON_HELPER('modular_darkpack/modules/weapons/icons/weapons_onfloor.dmi')
 
 	// WTA pg. 302
-	//DARKPACK EDIT START - Melee Weapon Rebalance
 	//You can technically block with a Katana, but not nearly as effectively as a longsword.
 	//Bonus against bare flesh, but not against armor. This is a KATANA, not a chainsaw.
 	force = 2 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
 	block_chance = 20 //DARKPACK EDIT CHANGE - ORIGINAL: block_chance = 50
 	exposed_wound_bonus = 30 //DARKPACK EDIT CHANGE - ORIGINAL: exposed_wound_bonus = 0
 	wound_bonus = 20 //DARKPACK EDIT CHANGE - ORIGINAL: wound_bonus = 0
-	//DARKPACK EDIT END - Melee Weapon Rebalance
 
 	pixel_w = -8
 	custom_price = 1300
@@ -187,9 +185,9 @@
 	masquerade_violating = FALSE
 	custom_price = 500
 	//DARKPACK EDIT START - Melee Weapon Rebalance
-	force = 1 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 1 LETHAL_TTRPG_DAMAGE
+	force = 2 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 1 LETHAL_TTRPG_DAMAGE
 	exposed_wound_bonus = 50 //...The serrated edge makes it hurt like hell.
-	block_chance = 10 //DARKPACK EDIT CHANGE - ORIGINAL: block_chance = 30
+	block_chance = 0 //DARKPACK EDIT CHANGE - ORIGINAL: block_chance = 30
 	//DARKPACK EDIT END - Melee Weapon Rebalance
 	attack_difficulty = 5 // Slightly worse handling then a knife.
 
@@ -343,7 +341,7 @@
 	// WTA pg. 302
 	// force_on = 7 LETHAL_TTRPG_DAMAGE // Holy fuck thats what its listed as but it also hurts you on a botch..
 	//Be FR people CANNOT be trusted with a 120 damage weapon
-	force_on = 4 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force_on = 6 LETHAL_TTRPG_DAMAGE
+	force_on = 6 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force_on = 6 LETHAL_TTRPG_DAMAGE
 	force = 2 TTRPG_DAMAGE
 	attack_difficulty = 8
 
