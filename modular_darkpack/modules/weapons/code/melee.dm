@@ -114,6 +114,7 @@
 	force = 1 LETHAL_TTRPG_DAMAGE //DARKPACK EDIT CHANGE - ORIGINAL: force = 2 LETHAL_TTRPG_DAMAGE
 	block_chance = 40
 	armour_penetration = 40	//DARKPACK EDIT CHANGE - ORIGINAL: armour_penetration = 50
+	attack_speed = CLICK_CD_MELEE / 1.3 //swings faster to compensate for lack of damage
 	//DARKPACK EDIT END - Melee Weapon Rebalance
 
 	var/value = 1000 // DARKPACK TODO: Move this up at some point. I hate the selling component with all my heart.
@@ -139,6 +140,7 @@
 	exposed_wound_bonus = 0
 	attack_difficulty = 7 //DARKPACK EDIT CHANGE - ORIGINAL: attack_difficulty = 6
 	sharpness = SHARP_POINTY //darkpack edit change - ORIGINAL: sharpness = SHARP_EDGED
+	attack_speed = CLICK_CD_MELEE / 1.5 //Swings faster to compensate for lack of damage
 	//DARKPACK EDIT END - Melee Weapon Rebalance
 	armour_penetration = 50
 
