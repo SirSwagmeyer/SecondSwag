@@ -425,6 +425,7 @@
 
 	// WTA pg. 302
 	force = 1 LETHAL_TTRPG_DAMAGE
+	attack_speed = CLICK_CD_MELEE / 1.5 //Swings faster to compensate for lack of damage
 	attack_difficulty = 4
 
 /obj/item/melee/vamp/brick

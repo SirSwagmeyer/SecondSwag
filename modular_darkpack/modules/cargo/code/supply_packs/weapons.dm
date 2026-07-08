@@ -50,7 +50,7 @@
 /datum/supply_pack/weapons/weaponrapier
 	name = "Weapon (rapier)"
 	desc = "Contains a rapier and sheathe."
-	cost = 800
+	cost = 2000 //DARKPACK EDIT - ORIGINAL: cost = 800
 	contains = list(/obj/item/storage/belt/sheath/vamp/rapier)
 	crate_name = "weapon crate"
 
@@ -64,21 +64,21 @@
 /datum/supply_pack/weapons/weaponkatana
 	name = "Weapon (katana)"
 	desc = "Contains a katana."
-	cost = 1000
+	cost = 2000 //DARKPACK EDIT - ORIGINAL: cost = 1000
 	contains = list(/obj/item/katana/vamp)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/weapons/weaponsabre
 	name = "Weapon (sabre)"
 	desc = "Contains a sabre and sheathe."
-	cost = 1200
+	cost = 2000 //DARKPACK EDIT - ORIGINAL: cost = 1200
 	contains = list(/obj/item/storage/belt/sheath/vamp/sabre)
 	crate_name = "weapon crate"
 
 /datum/supply_pack/weapons/weaponlongsword
 	name = "Weapon (longsword)"
 	desc = "Contains a longsword and sheathe."
-	cost = 1500
+	cost = 3500 //DARKPACK EDIT - ORIGINAL: cost = 1500
 	contains = list(/obj/item/storage/belt/sheath/vamp/sword)
 	crate_name = "weapon crate"
 

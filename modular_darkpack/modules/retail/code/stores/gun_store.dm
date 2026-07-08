@@ -21,7 +21,7 @@
 		new /datum/data/vending_product("Colt M1911 magazine", /obj/item/ammo_box/magazine/darkpack45acp, 50),
 		new /datum/data/vending_product("knife", /obj/item/knife/vamp, 100),
 		new /datum/data/vending_product("baseball bat", /obj/item/melee/baseball_bat/vamp, 200),
-		new /datum/data/vending_product("real katana", /obj/item/katana/vamp, 1500),
+		new /datum/data/vending_product("real katana", /obj/item/katana/vamp, 3000), //DARKPACK EDIT - ORIGINAL: new /datum/data/vending_product("katana", /obj/item/katana/vamp, 1500),
 		new /datum/data/vending_product("machete", /obj/item/claymore/machete, 500),
 		new /datum/data/vending_product("taser", /obj/item/melee/baton/security/handtaser, 250),
 		new /datum/data/vending_product("pepperspray", /obj/item/reagent_containers/spray/pepper, 200),
