@@ -225,4 +225,3 @@
 	item_path = /obj/item/clothing/suit/armor/hos/hos_formal
 
 
-// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul
