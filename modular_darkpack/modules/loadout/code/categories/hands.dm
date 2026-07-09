@@ -60,4 +60,3 @@
 /datum/loadout_item/hands/leather/fingerless
 	name = "Gauntlets (Fingerless Leather)"
 	item_path = /obj/item/clothing/gloves/rugged/fingerless
-// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul
