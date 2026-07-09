@@ -87,6 +87,8 @@
 	item_path = /obj/item/clothing/accessory/pride
 	reskin_datum = /datum/atom_skin/pride_pin
 
+// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 /datum/loadout_item/accessory/armband
 	name = "Armband"
 	item_path = /obj/item/clothing/accessory/armband
+// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul
