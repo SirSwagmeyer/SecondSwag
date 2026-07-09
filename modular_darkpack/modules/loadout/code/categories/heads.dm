@@ -186,4 +186,12 @@
 /datum/loadout_item/head/hats/redcoat
 	name = "Tricorn Hat"
 	item_path = /obj/item/clothing/head/costume/redcoat
+
+/datum/loadout_item/head/hats/parade/blue
+	name = "Parade Cap (Royal Blue)"
+	item_path = /obj/item/clothing/head/hats/caphat/parade
+
+/datum/loadout_item/head/hats/redcoat
+	name = "Royal Bicorne"
+	item_path = /obj/item/clothing/head/hats/caphat/bicorne
 //DARKPACK ADD END - Loadout + Fashion Overhaul

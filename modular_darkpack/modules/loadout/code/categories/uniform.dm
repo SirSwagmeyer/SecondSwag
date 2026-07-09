@@ -248,6 +248,81 @@
 	name = "Jumpsuit (Grey)"
 	item_path = /obj/item/clothing/under/color/grey
 
+/datum/loadout_item/uniform/hardboiled
+	name = "Hard-Boiled Suit"
+	item_path = /obj/item/clothing/under/rank/security/detective
+
+/datum/loadout_item/uniform/noir
+	name = "Noir Suit"
+	item_path = /obj/item/clothing/under/rank/security/detective/noir
+
+/datum/loadout_item/uniform/aerostatic
+	name = "Aerostatic Uniform"
+	item_path = /obj/item/clothing/under/rank/security/detective/kim
+
+/datum/loadout_item/jumpsuit/cookjorts
+	name = "Grillmaster Jorts"
+	item_path = /obj/item/clothing/under/rank/civilian/cookjorts
+
+/datum/loadout_item/jumpsuit/assistant
+	name = "Jumpsuit (Grey)"
+	item_path = /obj/item/clothing/under/color/grey
+
+/datum/loadout_item/jumpsuit/assistant
+	name = "Jumpsuit (Grey)"
+	item_path = /obj/item/clothing/under/color/grey
+
+/datum/loadout_item/jumpsuit/turtleneck/larp
+	name = "Turtleneck (Tacticool)"
+	item_path = /obj/item/clothing/under/syndicate/tacticool
+
+/datum/loadout_item/jumpsuit/turtleneck/larp/alt
+	name = "Turtleneck (Tactifool)"
+	item_path = /obj/item/clothing/under/syndicate
+
+/datum/loadout_item/jumpsuit/tracksuit
+	name = "Military Tracksuit (Surplus)"
+	item_path = /obj/item/clothing/under/syndicate/soviet
+
+/datum/loadout_item/jumpsuit/turtleneck/real
+	name = "Turtleneck (Operator)"
+	item_path = /obj/item/clothing/under/syndicate/combat
+
+/datum/loadout_item/jumpsuit/tracksuit/authentic
+	name = "Military Tracksuit"
+	item_path = /obj/item/clothing/under/syndicate/rus_army
+
+/datum/loadout_item/jumpsuit/camo
+	name = "Camouflage Fatigues (Surplus)"
+	item_path = /obj/item/clothing/under/syndicate/camo
+
+/datum/loadout_item/uniform/suit/hitman
+	name = "Formal Operator Suit"
+	item_path = /obj/item/clothing/under/syndicate/sniper
+
+/datum/loadout_item/uniform/suit/hitman
+	name = "Formal Operator Suit"
+	item_path = /obj/item/clothing/under/syndicate/sniper
+
+/datum/loadout_item/uniform/suit/parade/blue
+	name = "Parade Uniform (Royal Blue)"
+	item_path = /obj/item/clothing/under/rank/captain/parade
+
+/datum/loadout_item/uniform/suit/parade/royal
+	name = "Noble Uniform (Royal Blue)"
+	item_path = /obj/item/clothing/under/rank/captain/royal
+
+/datum/loadout_item/uniform/suit/parade/crimson
+	name = "Parade Uniform (Crimson Red)"
+	item_path = /obj/item/clothing/under/rank/security/head_of_security/parade
+
+/datum/loadout_item/uniform/suit/parade/crimson/femme
+	name = "Parade Uniform (Crimson Red, Femme"
+	item_path = /obj/item/clothing/under/rank/security/head_of_security/parade/female
+
+/datum/loadout_item/uniform/suit/military/formal
+	name = "Formal Military Uniform"
+	item_path = /obj/item/clothing/under/rank/security/head_of_security/formal
 
 /datum/loadout_item/costume/brujah
 	name = "Jabroni Outfit"

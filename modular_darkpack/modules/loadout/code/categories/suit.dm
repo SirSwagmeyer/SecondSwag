@@ -185,4 +185,34 @@
 /datum/loadout_item/suit/coat/pg
 	name = "Pacific Gangster Jacket"
 	item_path = /obj/item/clothing/suit/costume/pg
+
+/datum/loadout_item/suit/coat/pg
+	name = "Pacific Gangster Jacket"
+	item_path = /obj/item/clothing/suit/costume/pg
+
+/datum/loadout_item/suit/coat/formal/blue
+	name = "Formal Parade Blazer"
+	item_path = /obj/item/clothing/suit/jacket/hos/blue
+
+/datum/loadout_item/suit/trenchcoat/badass/large
+	name = "Leather Greatcoat"
+	item_path = /obj/item/clothing/suit/armor/hos
+
+/datum/loadout_item/suit/trenchcoat/badass/short
+	name = "Tacticool Overcoat"
+	item_path = /obj/item/clothing/suit/armor/vest/leather
+
+/datum/loadout_item/suit/trenchcoat/badass
+	name = "Gilded Trenchcoat"
+	item_path = /obj/item/clothing/suit/armor/hos/trenchcoat
+
+/datum/loadout_item/suit/trenchcoat/badass/formal/blue
+	name = "Militant Parade Coat (Royal Blue)"
+	item_path = /obj/item/clothing/suit/armor/vest/capcarapace/captains_formal
+
+/datum/loadout_item/suit/trenchcoat/badass/formal/red
+	name = "Militant Parade Coat (Crimson Red)"
+	item_path = /obj/item/clothing/suit/armor/hos/hos_formal
+
+
 //DARKPACK ADD END - Loadout + Fashion Overhaul
