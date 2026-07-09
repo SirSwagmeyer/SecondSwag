@@ -27,7 +27,6 @@
 /datum/loadout_item/hands/latex_gloves
 	name = "Gloves (Latex)"
 	item_path = /obj/item/clothing/gloves/vampire/latex
-// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
 /datum/loadout_item/hands/coroner
 	name = "Gloves (Morbid)"
