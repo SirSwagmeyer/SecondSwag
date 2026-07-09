@@ -149,7 +149,6 @@
 	name = "Harebell"
 	item_path = /obj/item/food/grown/harebell
 
-// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
 /datum/loadout_item/head/hats/cowboy_wide_feathered
 	name = "Wide-Brimmed Hat (Feathered)"
