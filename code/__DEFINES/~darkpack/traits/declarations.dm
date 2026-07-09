@@ -111,7 +111,8 @@ Remember to update _globalvars/traits.dm if you're adding/removing/renaming trai
 // Is the mob silenced (by Quietus 1 for example)
 #define TRAIT_SILENCED "silenced"
 // is the vampire weak to Dominate?
-#define TRAIT_WEAK_TO_DOMINATE "dominate_weak"// Is the mob completely immune to Dominate attempts?
+#define TRAIT_WEAK_TO_DOMINATE "dominate_weak"
+// Is the mob completely immune to Dominate attempts?
 #define TRAIT_IMMUNE_TO_DOMINATE "immune_to_dominate"
 // Is the mob completely immune to Presence attempts?
 #define TRAIT_IMMUNE_TO_PRESENCE "immune_to_presence"
