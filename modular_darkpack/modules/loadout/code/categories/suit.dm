@@ -154,6 +154,10 @@
 	item_path = /obj/item/clothing/suit/hooded/robes/blue
 // DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
+/datum/loadout_item/suit/top
+	group = "Casual Shirts"
+	abstract_type = /datum/loadout_item/suit/top
+
 /datum/loadout_item/suit/top/hawaiian_shirt
 	name = "Hawaiian Shirt"
 	item_path = /obj/item/clothing/suit/costume/hawaiian
@@ -177,40 +181,46 @@
 /datum/loadout_item/suit/top/wornout_graphicshirt
 	name = "Worn-out Graphic Shirt"
 	item_path = /obj/item/clothing/suit/costume/wellworn_shirt/wornout/graphic
+//Gangsta Jackets
 
-/datum/loadout_item/suit/coat/tmc
+/datum/loadout_item/suit/gang
+	group = "Gang Jackets"
+	abstract_type = /datum/loadout_item/suit/gang
+
+/datum/loadout_item/suit/gang/tmc
 	name = "Bay Bikers Jacket"
 	item_path = /obj/item/clothing/suit/costume/tmc
 
-/datum/loadout_item/suit/coat/pg
+/datum/loadout_item/suit/gang/pg
 	name = "Pacific Gangster Jacket"
 	item_path = /obj/item/clothing/suit/costume/pg
 
-/datum/loadout_item/suit/coat/pg
-	name = "Pacific Gangster Jacket"
-	item_path = /obj/item/clothing/suit/costume/pg
+//Military Coats
+/datum/loadout_item/suit/coat/military
+	group = "Militant Coats"
+	abstract_type = /datum/loadout_item/suit/coat/military
 
-/datum/loadout_item/suit/coat/formal/blue
+/datum/loadout_item/suit/coat/military/blue
 	name = "Formal Parade Blazer"
 	item_path = /obj/item/clothing/suit/jacket/hos/blue
 
-/datum/loadout_item/suit/trenchcoat/badass/large
+/datum/loadout_item/suit/coat/military/badass/large
 	name = "Leather Greatcoat"
 	item_path = /obj/item/clothing/suit/armor/hos
 
-/datum/loadout_item/suit/trenchcoat/badass/short
+/datum/loadout_item/suit/coat/military/badass/short
 	name = "Tacticool Overcoat"
 	item_path = /obj/item/clothing/suit/armor/vest/leather
 
-/datum/loadout_item/suit/trenchcoat/badass
+/datum/loadout_item/suit/coat/military/badass
 	name = "Gilded Trenchcoat"
 	item_path = /obj/item/clothing/suit/armor/hos/trenchcoat
 
-/datum/loadout_item/suit/trenchcoat/badass/formal/blue
+/datum/loadout_item/suit/coat/military/badass/formal/blue
 	name = "Militant Parade Coat (Royal Blue)"
 	item_path = /obj/item/clothing/suit/armor/vest/capcarapace/captains_formal
 
-/datum/loadout_item/suit/trenchcoat/badass/formal/red
+/datum/loadout_item/suit/coat/military/badass/formal/red
 	name = "Militant Parade Coat (Crimson Red)"
 	item_path = /obj/item/clothing/suit/armor/hos/hos_formal
 

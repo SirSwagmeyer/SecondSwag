@@ -64,6 +64,10 @@
 	item_path = /obj/item/clothing/shoes/vampire/pumped
 // DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
+/datum/loadout_item/shoes/boots
+	group = "Cowboy Boots"
+	abstract_type = /datum/loadout_item/shoes/boots
+
 /datum/loadout_item/shoes/boots/cowboy_brown
 	name = "Cowboy Boots (Brown)"
 	item_path = /obj/item/clothing/shoes/cowboy/laced

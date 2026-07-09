@@ -1116,7 +1116,7 @@
 
 /datum/greyscale_config/long_cape
 	name = "Long Cape"
-	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/color_worn.dmi'
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
 	json_config = 'modular_darkpack/modules/clothes/json_configs/long_cape.json'
 
 /datum/greyscale_config/long_cape/worn
@@ -1125,7 +1125,7 @@
 
 /datum/greyscale_config/wide_cape
 	name = "Wide Cape"
-	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/color_worn.dmi'
+	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
 	json_config = 'modular_darkpack/modules/clothes/json_configs/wide_cape.json'
 
 /datum/greyscale_config/wide_cape/worn
