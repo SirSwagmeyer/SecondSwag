@@ -339,4 +339,3 @@
 /datum/loadout_item/uniform/costume/kilt
 	name = "Kilt"
 	item_path = /obj/item/clothing/under/costume/kilt
-// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul
