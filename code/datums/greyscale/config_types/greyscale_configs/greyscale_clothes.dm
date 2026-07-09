@@ -1033,7 +1033,7 @@
 /datum/greyscale_config/cowboy_wide
 	name = "Wide brimmed hat"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'code/datums/greyscale/json_configs/json_configs/widebrim.json'
+	json_config = 'code/datums/greyscale/json_configs/widebrim.json'
 
 /datum/greyscale_config/cowboy_wide/worn
 	name = "Wide brimmed hat (Worn)"
@@ -1042,7 +1042,7 @@
 /datum/greyscale_config/cowboy_flat
 	name = "Flat brimmed hat"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'code/datums/greyscale/json_configs/json_configs/flatbrim.json'
+	json_config = 'code/datums/greyscale/json_configs/flatbrim.json'
 
 /datum/greyscale_config/cowboy_flat/worn
 	name = "Flat brimmed hat (Worn)"
@@ -1051,7 +1051,7 @@
 /datum/greyscale_config/cowboy_flat_cowl
 	name = "Flat brimmed cowled hat"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'code/datums/greyscale/json_configs/json_configs/flatbrim_cowl.json'
+	json_config = 'code/datums/greyscale/json_configs/flatbrim_cowl.json'
 
 /datum/greyscale_config/cowboy_flat_cowl/worn
 	name = "Flat brimmed cowled hat (worn)"
@@ -1060,7 +1060,7 @@
 /datum/greyscale_config/cowboy_wide_feathered
 	name = "Wide brimmed feathered hat"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'code/datums/greyscale/json_configs/json_configs/widebrim_feathered.json'
+	json_config = 'code/datums/greyscale/json_configs/widebrim_feathered.json'
 
 /datum/greyscale_config/cowboy_wide_feathered/worn
 	name = "Wide brimmed feathered hat (Worn)"
@@ -1069,7 +1069,7 @@
 /datum/greyscale_config/cowboy_cattleman
 	name = "Cattleman hat"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'code/datums/greyscale/json_configs/json_configs/cattleman.json'
+	json_config = 'code/datums/greyscale/json_configs/cattleman.json'
 
 /datum/greyscale_config/cowboy_cattleman/worn
 	name = "Cattleman hat (Worn)"
