@@ -62,7 +62,6 @@
 
 /datum/loadout_item/shoes/pumped
 	item_path = /obj/item/clothing/shoes/vampire/pumped
-// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
 /datum/loadout_item/shoes/boots
 	group = "Cowboy Boots"
