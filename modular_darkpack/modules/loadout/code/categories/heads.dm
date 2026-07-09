@@ -149,8 +149,6 @@
 	name = "Harebell"
 	item_path = /obj/item/food/grown/harebell
 
-// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
-
 /datum/loadout_item/head/hats/cowboy_wide_feathered
 	name = "Wide-Brimmed Hat (Feathered)"
 	item_path = /obj/item/clothing/head/cowboy/fancy/wide/feathered
@@ -194,4 +192,3 @@
 /datum/loadout_item/head/hats/captain
 	name = "Royal Bicorne"
 	item_path = /obj/item/clothing/head/hats/caphat/bicorne
-// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul

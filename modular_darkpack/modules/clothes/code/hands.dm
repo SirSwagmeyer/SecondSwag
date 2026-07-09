@@ -80,7 +80,6 @@
 	heat_protection = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = NONE
-// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
 /obj/item/clothing/gloves/rugged
 	name = "leather gloves"
@@ -116,4 +115,3 @@
 	icon_state = "rugged_fingerless"
 	worn_icon_state = "rugged_fingerless"
 	clothing_traits = list(TRAIT_FINGERPRINT_PASSTHROUGH)
-// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul

@@ -93,7 +93,6 @@
 	name = "scary mask"
 	desc = "Do you like scary movies?"
 	icon_state = "chaser"
-// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
 /obj/item/clothing/mask/gas/atmos/faceplate
 	name = "faceplate mask"
@@ -177,4 +176,3 @@
 	slot_flags = ITEM_SLOT_MASK
 	flags_cover = MASKCOVERSEYES
 
-// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul

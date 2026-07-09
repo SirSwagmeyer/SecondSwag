@@ -40,7 +40,6 @@
 	name = "prayer beads"
 	desc = "These beads are used for prayer."
 	icon_state = "beads"
-// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
 /obj/item/clothing/neck/long_cape
 	name = "long cape"
@@ -69,4 +68,3 @@
 	greyscale_colors = "#867361#4d433d#b2a69c"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|ARMS
-// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul
