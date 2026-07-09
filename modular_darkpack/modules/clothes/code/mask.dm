@@ -129,13 +129,11 @@
 	name = "neck gaiter"
 	desc = "A cloth for covering your neck, and usually a part of your face too, but that part's optional."
 	actions_types = list(/datum/action/item_action/adjust)
-	alternate_worn_layer = UNDER_UNIFORM_LAYER
+	alternate_worn_layer = UNIFORM_LAYER
 	icon = 'icons/map_icons/clothing/mask.dmi'
 	worn_icon = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
 	icon_state = "neck_gaiter"
 	post_init_icon_state = "gaiter"
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
 	inhand_icon_state = "balaclava"
 	greyscale_config = /datum/greyscale_config/neck_gaiter
 	greyscale_config_worn = /datum/greyscale_config/neck_gaiter/worn
@@ -167,4 +165,16 @@
 	. = ..()
 	. += span_notice("[src] can be worn above or below your suit. Alt-Right-click to toggle.")
 	. += span_notice("Alt-click [src] to adjust it.")
+
+/obj/item/clothing/mask/duelmask
+	name = "zorro mask"
+	desc = "A black cloth mask for those masked duelists, doesn't grant any protection, but covers your eyes, and your identity... somehow."
+	icon = 'icons/map_icons/clothing/mask.dmi'
+	icon_state = "duelmask"
+	worn_icon = 'modular_darkpack/modules/clothes/icons/clothing/worn/color_worn.dmi'
+	flags_inv = HIDEFACE
+	body_parts_covered = HEAD
+	slot_flags = ITEM_SLOT_MASK
+	flags_cover = MASKCOVERSEYES
+
 //DARKPACK ADD END - Loadout + Fashion Overhaul

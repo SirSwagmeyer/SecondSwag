@@ -1033,7 +1033,7 @@
 /datum/greyscale_config/cowboy_wide
 	name = "Wide brimmed hat"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'modular_darkpack/modules/clothes/json_configs/head/cowboy/widebrim.json'
+	json_config = 'modular_darkpack/modules/clothes/json_configs/widebrim.json'
 
 /datum/greyscale_config/cowboy_wide/worn
 	name = "Wide brimmed hat (Worn)"

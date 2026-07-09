@@ -455,7 +455,7 @@
 	)
 	crate_name = "armor crate"
 
-/datum/supply_pack/weapons/tallyho
+/datum/supply_pack/weapons/historical_larp_bulk
 	name = "Historical LARP Bulk Pack"
 	desc = "A set of live-action roleplaying outfits for the discerning history buff, from the Roman Empire to fall of the Soviet Union. Weapons not included."
 	cost = 6000
@@ -465,7 +465,7 @@
 		/obj/item/clothing/under/costume/gladiator,
 		/obj/item/clothing/head/helmet/gladiator,
 		/obj/item/clothing/under/costume/gi,
-		/obj/item/storage/belt/sheath/katana/empty
+		/obj/item/storage/belt/sheath/katana/empty,
 		/obj/item/clothing/under/costume/gamberson/military,
 		/obj/item/clothing/head/helmet/roman,
 		/obj/item/clothing/shoes/roman,
