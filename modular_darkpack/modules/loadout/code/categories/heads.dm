@@ -193,4 +193,3 @@
 /datum/loadout_item/head/hats/captain
 	name = "Royal Bicorne"
 	item_path = /obj/item/clothing/head/hats/caphat/bicorne
-// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul
