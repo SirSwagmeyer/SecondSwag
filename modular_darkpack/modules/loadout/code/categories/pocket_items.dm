@@ -33,7 +33,7 @@
 /datum/loadout_item/pocket_items/wristwatch
 	name = "Wrist watch"
 	item_path = /obj/item/watch
-//DARKPACK ADD START - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
 /datum/loadout_item/pocket_items/lantern
 	name = "Lantern"
@@ -50,7 +50,7 @@
 /datum/loadout_item/pocket_items/drinks_food/gromitmug
 	name = "Mug (Gromit)"
 	item_path = /obj/item/reagent_containers/cup/glass/mug/gromitmug
-//DARKPACK ADD END - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul
 
 /*
 /datum/loadout_item/pocket_items/phone

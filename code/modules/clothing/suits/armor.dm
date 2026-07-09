@@ -152,7 +152,7 @@
 
 /obj/item/clothing/suit/armor/hos
 	name = "leather greatcoat"
-	desc = "A greatcoat with protection and style - for those who want to exude a commanding presence." //DARKPACK EDIT - ORIGINAL: desc = "A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence."
+	desc = "A greatcoat with protection and style - for those who want to exude a commanding presence." //DARKPACK EDIT CHANGE - ORIGINAL: desc = "A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence."
 	icon_state = "hos"
 	inhand_icon_state = "greatcoat"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
@@ -173,7 +173,7 @@
 
 /obj/item/clothing/suit/armor/hos/trenchcoat
 	name = "gilded trenchcoat" //Surprisingly, the armor values on this thing are around the same ballpark as our regular trenchcoats.
-	desc = "A trenchcoat enhanced with a golden trim and flak. The epitome of tactical plainclothes." //DARKPACK EDIT - ORIGINAL: desc = "A trenchcoat enhanced with a special lightweight kevlar. The epitome of tactical plainclothes."
+	desc = "A trenchcoat enhanced with a golden trim and flak. The epitome of tactical plainclothes." //DARKPACK EDIT CHANGE - ORIGINAL: desc = "A trenchcoat enhanced with a special lightweight kevlar. The epitome of tactical plainclothes."
 	icon_state = "hostrench"
 	inhand_icon_state = "hostrench"
 	flags_inv = 0
@@ -186,7 +186,7 @@
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 
 /obj/item/clothing/suit/armor/hos/hos_formal
-	name = "militant parade coat (crimson red)" //DARKPACK EDIT - ORIGINAL: name = "Head of Security's parade jacket"
+	name = "militant parade coat (crimson red)" //DARKPACK EDIT CHANGE - ORIGINAL: name = "Head of Security's parade jacket"
 	desc = "For when an armoured vest isn't fashionable enough."
 	icon_state = "hosformal"
 	inhand_icon_state = "hostrench"
@@ -241,8 +241,8 @@
 	wound = 5
 
 /obj/item/clothing/suit/armor/vest/leather
-	name = "tacticool overcoat" //DARKPACK EDIT - ORIGINAL: name = "security overcoat"
-	desc = "A lightly armored leather overcoat, for when a regular trenchcoat isn't edgy enough." //DARKPACK EDIT - ORIGINAL: desc = "Lightly armored leather overcoat meant as casual wear for high-ranking officers. Bears the crest of Nanotrasen Security."
+	name = "tacticool overcoat" //DARKPACK EDIT CHANGE - ORIGINAL: name = "security overcoat"
+	desc = "A lightly armored leather overcoat, for when a regular trenchcoat isn't edgy enough." //DARKPACK EDIT CHANGE - ORIGINAL: desc = "Lightly armored leather overcoat meant as casual wear for high-ranking officers. Bears the crest of Nanotrasen Security."
 	icon_state = "leathercoat-sec"
 	inhand_icon_state = "hostrench"
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
@@ -261,8 +261,8 @@
 	resistance_flags = FIRE_PROOF
 
 /datum/armor/vest_capcarapace
-	melee = 30 //DARKPACK EDIT - ORIGINAL: melee = 50
-	bullet = 30 //DARKPACK EDIT - ORIGINAL: bullet = 50
+	melee = 30 //DARKPACK EDIT CHANGE - ORIGINAL: melee = 50
+	bullet = 30 //DARKPACK EDIT CHANGE - ORIGINAL: bullet = 50
 	laser = 50
 	energy = 50
 	bomb = 25
@@ -276,7 +276,7 @@
 	icon_state = "syndievest"
 
 /obj/item/clothing/suit/armor/vest/capcarapace/captains_formal
-	name = "militant parade coat (royal blue)" //DARKPACK EDIT - ORIGINAL: name = "captain's formal coat"
+	name = "militant parade coat (royal blue)" //DARKPACK EDIT CHANGE - ORIGINAL: name = "captain's formal coat"
 	desc = "For when an armoured vest isn't fashionable enough."
 	icon_state = "capformal"
 	inhand_icon_state = null

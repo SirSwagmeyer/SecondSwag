@@ -140,7 +140,7 @@
 /datum/loadout_item/mask/costume/mummy
 	name = "Mummy Mask"
 	item_path = /obj/item/clothing/mask/mummy
-//DARKPACK ADD START - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
 /datum/loadout_item/mask/other/faceplate
 	name = "Faceplate Mask"
@@ -154,4 +154,4 @@
 	name = "Zorro Mask"
 	item_path = /obj/item/clothing/mask/duelmask
 
-//DARKPACK ADD END - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul

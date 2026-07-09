@@ -152,7 +152,7 @@
 /datum/loadout_item/suit/robes/blue
 	name = "Robes (Blue)"
 	item_path = /obj/item/clothing/suit/hooded/robes/blue
-//DARKPACK ADD START - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
 /datum/loadout_item/suit/top/hawaiian_shirt
 	name = "Hawaiian Shirt"
@@ -215,4 +215,4 @@
 	item_path = /obj/item/clothing/suit/armor/hos/hos_formal
 
 
-//DARKPACK ADD END - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul

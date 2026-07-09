@@ -62,7 +62,7 @@
 
 /datum/loadout_item/shoes/pumped
 	item_path = /obj/item/clothing/shoes/vampire/pumped
-//DARKPACK ADD START - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
 /datum/loadout_item/shoes/boots/cowboy_brown
 	name = "Cowboy Boots (Brown)"
@@ -79,4 +79,4 @@
 /datum/loadout_item/shoes/boots/cowboy_badass
 	name = "Cowboy Boots (Badass)"
 	item_path = /obj/item/clothing/shoes/cowboy/black/syndicate
-//DARKPACK ADD END - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul

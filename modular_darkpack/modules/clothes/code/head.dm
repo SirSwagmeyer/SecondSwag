@@ -376,7 +376,7 @@
 	desc = "A black beret, perfect for war veterans and dark, brooding, anti-hero mimes."
 	greyscale_colors = "#3f3c40"
 
-///DARKPACK ADDITION START - NEW HATS
+// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 /obj/item/clothing/head/cowboy/fancy
 	name = "COWBOY HAT DEBUG"
 	desc = "REPORT THIS IF FOUND"
@@ -449,4 +449,4 @@
 	greyscale_config = /datum/greyscale_config/cowboy_cattleman_wide
 	greyscale_config_worn = /datum/greyscale_config/cowboy_cattleman_wide/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
-//DARKPACK ADD END - NEW HATS
+// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul

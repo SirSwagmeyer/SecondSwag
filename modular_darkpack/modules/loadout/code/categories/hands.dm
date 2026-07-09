@@ -27,7 +27,7 @@
 /datum/loadout_item/hands/latex_gloves
 	name = "Gloves (Latex)"
 	item_path = /obj/item/clothing/gloves/vampire/latex
-//DARKPACK ADD START - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
 /datum/loadout_item/hands/coroner
 	name = "Gloves (Morbid)"
@@ -60,4 +60,4 @@
 /datum/loadout_item/hands/leather/fingerless
 	name = "Gauntlets (Fingerless Leather)"
 	item_path = /obj/item/clothing/gloves/rugged/fingerless
-//DARKPACK ADD END - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul

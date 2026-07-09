@@ -439,7 +439,7 @@
 					/obj/item/clothing/head/vampire/eod)
 	crate_name = "armor crate"
 
-//DARKPACK ADD START - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 /datum/supply_pack/weapons/tallyho
 	name = "Revolutionary Reenactment Kit"
 	desc = "No taxation without representation! Contains a set of revolutionary attire, set with a pair of antique muskets."
@@ -473,4 +473,4 @@
 		/obj/item/clothing/head/costume/ushanka,
 	)
 	crate_name = "armor crate"
-//DARKPACK ADD END - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul

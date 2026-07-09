@@ -143,7 +143,7 @@
 	spillable = TRUE
 	custom_materials = list(/datum/material/glass=500)
 	custom_price = 10 // ECONOMY
-//DARKPACK ADD START - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
 /obj/item/reagent_containers/cup/glass/mug/gromitmug
 	name = "gromit mug"
@@ -153,4 +153,4 @@
 	base_icon_state = "gromitmug"
 	volume = 30
 	spillable = TRUE
-//DARKPACK ADD END - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul

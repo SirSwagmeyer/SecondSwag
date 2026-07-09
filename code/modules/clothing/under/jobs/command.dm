@@ -24,12 +24,12 @@
 
 /obj/item/clothing/under/rank/captain/parade
 	name = "parade uniform (royal blue)"
-	desc = "A set of luxury-wear clothes, for special occasions." //DARKPACK EDIT - ORIGINAL: desc = "A captain's luxury-wear, for special occasions."
+	desc = "A set of luxury-wear clothes, for special occasions." //DARKPACK EDIT CHANGE - ORIGINAL: desc = "A captain's luxury-wear, for special occasions."
 	icon_state = "captain_parade"
 	inhand_icon_state = null
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/captain/royal
 	name = "tasseted noble uniform"
-	desc = "A royal uniform fit for a king. Practically made for commanding your men into battle." //DARKPACK EDIT - ORIGINAL: desc = "A captain's royal uniform. Fit for commanding your Officers in the midst of a nuclear incursion."
+	desc = "A royal uniform fit for a king. Practically made for commanding your men into battle." //DARKPACK EDIT CHANGE - ORIGINAL: desc = "A captain's royal uniform. Fit for commanding your Officers in the midst of a nuclear incursion."
 	icon_state = "caproyal"

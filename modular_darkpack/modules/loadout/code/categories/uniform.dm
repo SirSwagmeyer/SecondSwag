@@ -242,7 +242,7 @@
 /datum/loadout_item/uniform/black_overcoat
 	name = "Overcoat (Black)"
 	item_path = /obj/item/clothing/under/vampire/rich
-//DARKPACK ADD START - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD START - Loadout + Fashion Overhaul
 
 /datum/loadout_item/jumpsuit/assistant
 	name = "Jumpsuit (Grey)"
@@ -337,4 +337,4 @@
 /datum/loadout_item/costume/kilt
 	name = "Kilt"
 	item_path = /obj/item/clothing/under/costume/kilt
-//DARKPACK ADD END - Loadout + Fashion Overhaul
+// DARKPACK EDIT ADD END - Loadout + Fashion Overhaul
