@@ -271,11 +271,11 @@
 	group = "Military Surplus"
 	abstract_type = /datum/loadout_item/uniform/military
 
-/datum/loadout_item/uniform/military/turtleneck/larp
+/datum/loadout_item/uniform/military/turtleneck
 	name = "Turtleneck (Tacticool)"
 	item_path = /obj/item/clothing/under/syndicate/tacticool
 
-/datum/loadout_item/uniform/military/turtleneck/larp/alt
+/datum/loadout_item/uniform/military/turtleneck/larp
 	name = "Turtleneck (Tactifool)"
 	item_path = /obj/item/clothing/under/syndicate
 

@@ -149,46 +149,46 @@
 	name = "Harebell"
 	item_path = /obj/item/food/grown/harebell
 
-/datum/loadout_item/head/hats/cowboy_wide_feathered
+/datum/loadout_item/head/cowboy_wide_feathered
 	name = "Wide-Brimmed Hat (Feathered)"
 	item_path = /obj/item/clothing/head/cowboy/fancy/wide/feathered
 
-/datum/loadout_item/head/hats/cowboy_wide
+/datum/loadout_item/head/cowboy_wide
 	name = "Wide-Brimmed Hat"
 	item_path = /obj/item/clothing/head/cowboy/fancy/wide
 
-/datum/loadout_item/head/hats/cowboy_cattleman_wide
+/datum/loadout_item/head/cowboy_cattleman_wide
 	name = "Cattleman Hat (Wide)"
 	item_path = /obj/item/clothing/head/cowboy/fancy/cattleman/wide
 
-/datum/loadout_item/head/hats/cowboy_cattleman
+/datum/loadout_item/head/cowboy_cattleman
 	name = "Cattleman Hat"
 	item_path = /obj/item/clothing/head/cowboy/fancy/cattleman
 
-/datum/loadout_item/head/hats/flat_brim
+/datum/loadout_item/head/flat_brim
 	name = "Flat-Brimmed Hat"
 	item_path = /obj/item/clothing/head/cowboy/fancy/flat
 
-/datum/loadout_item/head/hats/cowboy_flat_cowl
+/datum/loadout_item/head/cowboy_flat_cowl
 	name = "Flat-Brimmed Cowled Hat"
 	item_path = /obj/item/clothing/head/cowboy/fancy/flat/cowl
 
-/datum/loadout_item/head/costume/propeller_hat
+/datum/loadout_item/head/propeller_hat
 	name = "Propeller Hat"
 	item_path = /obj/item/clothing/head/soft/propeller_hat
 
-/datum/loadout_item/head/costume/kitty_ears
+/datum/loadout_item/head/kitty_ears
 	name = "Kitty Ears"
 	item_path = /obj/item/clothing/head/costume/kitty
 
-/datum/loadout_item/head/hats/redcoat
+/datum/loadout_item/head/redcoat
 	name = "Tricorn Hat"
 	item_path = /obj/item/clothing/head/costume/redcoat
 
-/datum/loadout_item/head/hats/parade/blue
+/datum/loadout_item/head/parade/blue
 	name = "Parade Cap (Royal Blue)"
 	item_path = /obj/item/clothing/head/hats/caphat/parade
 
-/datum/loadout_item/head/hats/captain
+/datum/loadout_item/head/captain
 	name = "Royal Bicorne"
 	item_path = /obj/item/clothing/head/hats/caphat/bicorne

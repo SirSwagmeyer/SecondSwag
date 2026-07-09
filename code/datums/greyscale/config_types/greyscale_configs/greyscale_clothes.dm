@@ -1033,7 +1033,7 @@
 /datum/greyscale_config/cowboy_wide
 	name = "Wide brimmed hat"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'modular_darkpack/modules/clothes/json_configs/widebrim.json'
+	json_config = 'code/datums/greyscale/json_configs/json_configs/widebrim.json'
 
 /datum/greyscale_config/cowboy_wide/worn
 	name = "Wide brimmed hat (Worn)"
@@ -1042,7 +1042,7 @@
 /datum/greyscale_config/cowboy_flat
 	name = "Flat brimmed hat"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'modular_darkpack/modules/clothes/json_configs/flatbrim.json'
+	json_config = 'code/datums/greyscale/json_configs/json_configs/flatbrim.json'
 
 /datum/greyscale_config/cowboy_flat/worn
 	name = "Flat brimmed hat (Worn)"
@@ -1051,7 +1051,7 @@
 /datum/greyscale_config/cowboy_flat_cowl
 	name = "Flat brimmed cowled hat"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'modular_darkpack/modules/clothes/json_configs/flatbrim_cowl.json'
+	json_config = 'code/datums/greyscale/json_configs/json_configs/flatbrim_cowl.json'
 
 /datum/greyscale_config/cowboy_flat_cowl/worn
 	name = "Flat brimmed cowled hat (worn)"
@@ -1060,7 +1060,7 @@
 /datum/greyscale_config/cowboy_wide_feathered
 	name = "Wide brimmed feathered hat"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'modular_darkpack/modules/clothes/json_configs/widebrim_feathered.json'
+	json_config = 'code/datums/greyscale/json_configs/json_configs/widebrim_feathered.json'
 
 /datum/greyscale_config/cowboy_wide_feathered/worn
 	name = "Wide brimmed feathered hat (Worn)"
@@ -1069,7 +1069,7 @@
 /datum/greyscale_config/cowboy_cattleman
 	name = "Cattleman hat"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'modular_darkpack/modules/clothes/json_configs/cattleman.json'
+	json_config = 'code/datums/greyscale/json_configs/json_configs/cattleman.json'
 
 /datum/greyscale_config/cowboy_cattleman/worn
 	name = "Cattleman hat (Worn)"
@@ -1078,7 +1078,7 @@
 /datum/greyscale_config/cowboy_cattleman_wide
 	name = "Wide cattleman hat"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'modular_darkpack/modules/clothes/json_configs/cattleman_wide.json'
+	json_config = 'code/datums/greyscale/json_configs/cattleman_wide.json'
 
 /datum/greyscale_config/cowboy_cattleman_wide/worn
 	name = "Wide cattleman hat (Worn)"
@@ -1086,38 +1086,38 @@
 
 /datum/greyscale_config/faceplate_eyes
 	name = "Faceplate Mask"
-	json_config = 'modular_darkpack/modules/clothes/json_configs/faceplate_eyes.json'
+	json_config = 'code/datums/greyscale/json_configs/faceplate_eyes.json'
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
 
 /datum/greyscale_config/faceplate_eyes/worn
 	name = "Faceplate Mask (Worn)"
-	json_config = 'modular_darkpack/modules/clothes/json_configs/faceplate_eyes.json'
+	json_config = 'code/datums/greyscale/json_configs/faceplate_eyes.json'
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
 
 /datum/greyscale_config/faceplate
 	name = "Faceplate Mask"
-	json_config = 'modular_darkpack/modules/clothes/json_configs/faceplate.json'
+	json_config = 'code/datums/greyscale/json_configs/faceplate.json'
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
 
 /datum/greyscale_config/faceplate/worn
 	name = "Faceplate Mask (Worn)"
-	json_config = 'modular_darkpack/modules/clothes/json_configs/faceplate.json'
+	json_config = 'code/datums/greyscale/json_configs/faceplate.json'
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
 
 /datum/greyscale_config/neck_gaiter
 	name = "Neck Gaiter"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'modular_darkpack/modules/clothes/json_configs/gaiter.json'
+	json_config = 'code/datums/greyscale/json_configs/gaiter.json'
 
 /datum/greyscale_config/neck_gaiter/worn
 	name = "Neck Gaiter (Worn)"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/worn/greyscale_worn.dmi'
-	json_config = 'modular_darkpack/modules/clothes/json_configs/gaiter_worn.json'
+	json_config = 'code/datums/greyscale/json_configs/gaiter_worn.json'
 
 /datum/greyscale_config/long_cape
 	name = "Long Cape"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'modular_darkpack/modules/clothes/json_configs/long_cape.json'
+	json_config = 'code/datums/greyscale/json_configs/long_cape.json'
 
 /datum/greyscale_config/long_cape/worn
 	name = "Long Cape (Worn)"
@@ -1126,7 +1126,7 @@
 /datum/greyscale_config/wide_cape
 	name = "Wide Cape"
 	icon_file = 'modular_darkpack/modules/clothes/icons/clothing/greyscale.dmi'
-	json_config = 'modular_darkpack/modules/clothes/json_configs/wide_cape.json'
+	json_config = 'code/datums/greyscale/json_configs/wide_cape.json'
 
 /datum/greyscale_config/wide_cape/worn
 	name = "Wide Cape (Worn)"

@@ -141,7 +141,7 @@
 	name = "Mummy Mask"
 	item_path = /obj/item/clothing/mask/mummy
 
-/datum/loadout_item/mask/other/faceplate
+/datum/loadout_item/mask/other
 	name = "Faceplate Mask"
 	item_path = /obj/item/clothing/mask/gas/atmos/faceplate
 
