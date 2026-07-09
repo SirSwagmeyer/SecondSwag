@@ -204,6 +204,10 @@
 	name = "Formal Parade Blazer"
 	item_path = /obj/item/clothing/suit/jacket/hos/blue
 
+/datum/loadout_item/suit/coat/military/badass
+	name = "Gilded Trenchcoat"
+	item_path = /obj/item/clothing/suit/armor/hos/trenchcoat
+
 /datum/loadout_item/suit/coat/military/badass/large
 	name = "Leather Greatcoat"
 	item_path = /obj/item/clothing/suit/armor/hos
@@ -212,11 +216,7 @@
 	name = "Tacticool Overcoat"
 	item_path = /obj/item/clothing/suit/armor/vest/leather
 
-/datum/loadout_item/suit/coat/military/badass
-	name = "Gilded Trenchcoat"
-	item_path = /obj/item/clothing/suit/armor/hos/trenchcoat
-
-/datum/loadout_item/suit/coat/military/badass/formal/blue
+/datum/loadout_item/suit/coat/military/badass/formal
 	name = "Militant Parade Coat (Royal Blue)"
 	item_path = /obj/item/clothing/suit/armor/vest/capcarapace/captains_formal
 
