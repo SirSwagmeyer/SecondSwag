@@ -23,4 +23,7 @@
 		new /datum/data/vending_product("comedy mask", /obj/item/clothing/mask/vampire/comedy, 25),
 		new /datum/data/vending_product("tragedy mask", /obj/item/clothing/mask/vampire/tragedy, 25),
 		new /datum/data/vending_product("shemagh", /obj/item/clothing/mask/vampire/shemagh, 20),
+		new /datum/data/vending_product("blank mask", /obj/item/clothing/mask/gas/atmos/faceplate, 20),
+		new /datum/data/vending_product("blank mask with eyes", /obj/item/clothing/mask/gas/atmos/faceplate/why_so_eyes, 20),
+		new /datum/data/vending_product("zorro mask", /obj/item/clothing/mask/duelmask, 20),
 	)

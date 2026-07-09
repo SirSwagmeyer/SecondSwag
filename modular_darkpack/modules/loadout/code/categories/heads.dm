@@ -183,4 +183,7 @@
 	name = "Kitty Ears"
 	item_path = /obj/item/clothing/head/costume/kitty
 
+/datum/loadout_item/head/hats/redcoat
+	name = "Tricorn Hat"
+	item_path = /obj/item/clothing/head/costume/redcoat
 //DARKPACK ADD END - Loadout + Fashion Overhaul
